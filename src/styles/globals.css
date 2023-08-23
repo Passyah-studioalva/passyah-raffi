@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap");
 @import url("https://fonts.cdnfonts.com/css/proxima-nova-condensed");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
 * {
   padding: 0;
@@ -12,6 +13,10 @@
 
 .logo {
   font-family: "Emilys Candy", cursive;
+}
+
+.text-hero {
+  font-family: "Sacramento", cursive;
 }
 
 ul {
@@ -78,4 +83,12 @@ h4:after {
   color: gray;
   font-weight: normal;
   padding-top: 10px;
+}
+.dangerouslySetInnerHTML a {
+  transition: 300ms;
+  border-bottom: 1px solid transparent;
+  color: #0074d9;
+}
+.dangerouslySetInnerHTML a:hover {
+  border-color: #0074d9;
 }

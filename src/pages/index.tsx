@@ -10,7 +10,7 @@ import NUCLEUSICONS from "@assets/nucleus-icons-img.png";
 // import BIZTIPS from "@assets/biztips.png";
 import BIZTIPS from "@assets/biztips-img.png";
 import Hero from "@src/components/global/hero";
-import HERO from '@assets/hero.jpg'
+import HERO from "@assets/img-hero2.png";
 
 export default function HomePage() {
   const dummy = [
@@ -57,55 +57,54 @@ export default function HomePage() {
   ];
 
   return (
-    <Container maxW={"container.xl"} mb={20}>
-      <Hero
-        url={HERO.src}
-        alt="hero"
-      />
-      <Box mt={10}>
-        <Text
-          as="h4"
-          textAlign={"center"}
-          my={10}
-          fontSize={25}
-          color={"gray.600"}
-        >
-          My Project
-        </Text>
-        <SimpleGrid columns={4} spacing={10}>
-          {dummy.map((item, idx) => {
-            return (
-              <Link key={idx} href={item.url} passHref legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Box
-                    bg={item.color}
-                    color={"white"}
-                    minH="300px"
-                    rounded={"md"}
-                  >
-                    <Image
-                      src={item.img.src}
-                      alt={item.title}
-                      w="full"
-                      h="200px"
-                      // objectFit={"cover"}
-                      objectPosition={"center"}
-                      roundedTop={"md"}
-                    />
+    <>
+      <Hero url={HERO.src} alt="hero" />
+      <Container maxW={"container.xl"} mb={20}>
+        <Box mt={10}>
+          <Text
+            as="h4"
+            textAlign={"center"}
+            my={10}
+            fontSize={25}
+            color={"gray.600"}
+          >
+            My Project
+          </Text>
+          <SimpleGrid columns={4} spacing={10}>
+            {dummy.map((item, idx) => {
+              return (
+                <Link key={idx} href={item.url} passHref legacyBehavior>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <Box
+                      bg={item.color}
+                      color={"white"}
+                      minH="300px"
+                      rounded={"md"}
+                    >
+                      <Image
+                        src={item.img.src}
+                        alt={item.title}
+                        w="full"
+                        h="200px"
+                        // objectFit={"cover"}
+                        objectPosition={"center"}
+                        roundedTop={"md"}
+                      />
 
-                    <Box py={5} p={2}>
-                      <Text fontSize={20} fontWeight={600}>
-                        {item.title}
-                      </Text>
-                      <Text>{item.desc}</Text>
+                      <Box py={5} p={2}>
+                        <Text fontSize={20} fontWeight={600}>
+                          {item.title}
+                        </Text>
+                        <Text>{item.desc}</Text>
+                      </Box>
                     </Box>
-                  </Box>
-                </a>
-              </Link>
-            );
-          })}
-        </SimpleGrid>
-      </Box>
-    </Container>
+                  </a>
+                </Link>
+              );
+            })}
+          </SimpleGrid>
+        </Box>
+      </Container>
+    </>
   );
 }

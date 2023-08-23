@@ -18,14 +18,14 @@ import GRANDMASTER from "@assets/level-experience/Grandmaster.jpg";
 import MASTER from "@assets/level-experience/Master.jpg";
 import ELITE from "@assets/level-experience/Elite.jpg";
 import WARRIOR from "@assets/level-experience/Warrior.jpg";
-import HERO from "@assets/hero.jpg";
+import HERO from "@assets/img-hero.jpg";
 import MONITOR from "@assets/monitor.png";
 
 const AboutPage: React.FC = () => {
   const text = `
   <h1>about.</h1>
   <h3>I'm a front-end developer based in DKI Jakarta, Jakarta Selatan, Indonesia.<h3/>
-  <p>Since 2005, I've enjoyed turning complex problems into simple, beautiful and intuitive designs. When I'm not pushing pixels, you'll find me cooking, gardening or working out in the park.<p/>
+  <p>Since 2022 I've known programs to explore HTML, CSS, and javascript. I focused on studying at the <a href="https://dumbways.id/">Dumbways.id</a> bootcamp and until now I work as a frontend developer team at <a href="https://studioalva.co/">studioalva.co.</a><p/>
   `;
 
   const category = [
@@ -96,6 +96,7 @@ const AboutPage: React.FC = () => {
       <Container maxW={"full"} shadow={"md"} pb={20}>
         <Container maxW={"container.xl"}>
           {/* HERO */}
+          <a href=""></a>
           <Hero about={true} url={HERO.src} alt="hero" text={text} />
         </Container>
       </Container>
@@ -108,15 +109,10 @@ const AboutPage: React.FC = () => {
           gap={10}
           justifyContent={"space-between"}
           color={"gray.600"}
+          mt={20}
         >
           <Box w={"full"} h={"500px"} overflow={"hidden"}>
-            <Image
-              src={MONITOR.src}
-              alt="screen"
-              w={"full"}
-              h={"full"}
-              mt={20}
-            />
+            <Image src={MONITOR.src} alt="screen" w={"full"} h={"full"} />
           </Box>
           {/* <Flex flexDir={"column"} justifyContent={"center"} w={"full"}> */}
           <Flex flexDir={"column"} mt={20} w={"full"}>

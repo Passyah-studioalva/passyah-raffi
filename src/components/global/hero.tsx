@@ -9,15 +9,33 @@ type Props = {
 
 const Hero: React.FC<Props> = ({ url, alt, text, about }) => {
   return (
-    <Container maxW={"container.xl"} mt={10}>
+    <>
       {!about ? (
-        <Flex justifyContent={"center"} alignItems={"center"}>
-
-        <Image src={url} alt={alt} w={'auto'} h={'500px'} />
+        <Flex
+          bgColor={"blackAlpha.800"}
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+        >
+          <Box
+            as={"span"}
+            color={"white"}
+            fontSize={'40px'}
+            textAlign={"center"}
+            fontStyle={"italic"}
+          >
+            <Text as={"h1"} fontSize={'100px'} className="text-hero">
+              Passyah Raffi
+            </Text>
+            <Text as={"h2"}>Frontend Developer</Text>
+            <Text as={"p"} fontSize={'20px'}>
+              passyah11@gmail.com
+            </Text>
+          </Box>
+          <Image src={url} alt={alt} w={"auto"} h={"600px"} />
         </Flex>
       ) : (
-        <Flex justifyContent={"space-between"} alignItems={"center"}>
-
+        <Container maxW={"container.xl"} mt={10}>
+          <Flex gap={5} justifyContent={"space-between"} alignItems={"center"}>
             <Box
               as="div"
               className="dangerouslySetInnerHTML"
@@ -29,11 +47,12 @@ const Hero: React.FC<Props> = ({ url, alt, text, about }) => {
               //   }
               // }}
             />
-     
-          <Image src={url} alt={alt} w={'50%'} />
-        </Flex>
+
+            <Image src={url} alt={alt} w={"50%"} />
+          </Flex>
+        </Container>
       )}
-    </Container>
+    </>
   );
 };
 
