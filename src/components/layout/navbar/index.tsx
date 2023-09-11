@@ -11,7 +11,6 @@ import Link from "next/link";
 export default function Navbar() {
   const listPage = [
     { title: "about", url: "/about" },
-    { title: "book", url: "/book" },
     { title: "portfolio", url: "/portfolio" },
     { title: "blog", url: "/blog" },
     { title: "contact", url: "/contact" },

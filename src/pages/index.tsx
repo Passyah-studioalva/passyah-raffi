@@ -10,7 +10,7 @@ import NUCLEUSICONS from "@assets/nucleus-icons-img.png";
 // import BIZTIPS from "@assets/biztips.png";
 import BIZTIPS from "@assets/biztips-img.png";
 import Hero from "@src/components/global/hero";
-import HERO from "@assets/img-hero2.png";
+import HERO from "@assets/home.png";
 
 export default function HomePage() {
   const dummy = [
