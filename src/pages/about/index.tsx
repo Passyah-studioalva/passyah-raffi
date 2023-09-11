@@ -18,7 +18,7 @@ import GRANDMASTER from "@assets/level-experience/Grandmaster.jpg";
 import MASTER from "@assets/level-experience/Master.jpg";
 import ELITE from "@assets/level-experience/Elite.jpg";
 import WARRIOR from "@assets/level-experience/Warrior.jpg";
-import HERO from "@assets/img-hero.jpg";
+import HERO from "@assets/img-hero.JPG";
 import MONITOR from "@assets/monitor.png";
 import { useRouter } from "next/router";
 
