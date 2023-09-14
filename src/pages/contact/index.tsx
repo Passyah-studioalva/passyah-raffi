@@ -1,14 +1,14 @@
+import { useRouter } from "next/router";
 import { Container } from "@chakra-ui/react";
 import Hero from "@src/components/global/hero";
-import HERO from "@assets/contact.JPG";
-import { useRouter } from "next/router";
-import IG from "@assets/instagram.png";
-import MAIL from "@assets/gmail.png";
-import FB from "@assets/facebook.png";
-import TW from "@assets/twitter.png";
-import LINKEDIN from "@assets/linkedin.png";
-import GITHUB from "@assets/github.png";
 import Email from "@src/components/global/email";
+import HERO from "@assets/contact.JPG";
+import IG from "@assets/icon/instagram.png";
+import MAIL from "@assets/icon/gmail.png";
+import FB from "@assets/icon/facebook.png";
+import TW from "@assets/icon/twitter.png";
+import LINKEDIN from "@assets/icon/linkedin.png";
+// import GITHUB from "@assets/icon/github.png";
 
 const ContactPage: React.FC = () => {
   const router = useRouter();

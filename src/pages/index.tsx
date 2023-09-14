@@ -1,14 +1,16 @@
 import { Box, Container, Text, SimpleGrid, Image } from "@chakra-ui/react";
 import Link from "next/link";
 // import Image from "next/image";
-// import ACETOURS from "@assets/acetours.png";
-import ACETOURS from "@assets/acetours-img.png";
-// import NUCLEUSUI from "@assets/nucleus-ui.png";
-import NUCLEUSUI from "@assets/nucleus-ui-img.png";
-// import NUCLEUSICONS from "@assets/nucleus-icons.png";
-import NUCLEUSICONS from "@assets/nucleus-icons-img.png";
-// import BIZTIPS from "@assets/biztips.png";
-import BIZTIPS from "@assets/biztips-img.png";
+// import ACETOURS from "@assets/img-project/acetours.png";
+import ACETOURS from "@assets/img-project/acetours-img.png";
+// import NUCLEUSUI from "@assets/img-project/nucleus-ui.png";
+import NUCLEUSUI from "@assets/img-project/nucleus-ui-img.png";
+// import NUCLEUSICONS from "@assets/img-project/nucleus-icons.png";
+import NUCLEUSICONS from "@assets/img-project/nucleus-icons-img.png";
+// import BIZTIPS from "@assets/img-project/biztips.png";
+import BIZTIPS from "@assets/img-project/biztips-img.png";
+import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
+import COMMINGSOON from "@assets/img-project/coming-soon.png";
 import Hero from "@src/components/global/hero";
 import HERO from "@assets/home.png";
 
@@ -54,6 +56,26 @@ export default function HomePage() {
       // url: "https://gobiz-frontend.vercel.app/biztips",
       img: BIZTIPS,
     },
+    {
+      title: "Racun Shopee",
+      desc: "Mobile app untuk memudahkan seorang affiliator membuat content.",
+      color: "#f53d2d",
+      /* Domain */
+      // url: "?",
+      /* Vercel */
+      url: "https://racun-shopee.vercel.app/",
+      img: RACUNSHOPEE,
+    },
+    {
+      title: "coming soon",
+      desc: "",
+      color: "transparent",
+      /* Domain */
+      // url: "?",
+      /* Vercel */
+      url: "/#",
+      img: COMMINGSOON,
+    },
   ];
 
   return (
@@ -70,7 +92,7 @@ export default function HomePage() {
           >
             My Project
           </Text>
-          <SimpleGrid columns={4} spacing={10}>
+          <SimpleGrid columns={[1, 2, 2, 3]} spacing={10}>
             {dummy.map((item, idx) => {
               return (
                 <Link key={idx} href={item.url} passHref legacyBehavior>
@@ -79,16 +101,36 @@ export default function HomePage() {
                       bg={item.color}
                       color={"white"}
                       minH="300px"
+                      maxH="300px"
                       rounded={"md"}
+                      overflow={"hidden"}
+                      className={
+                        item.title.toLocaleLowerCase() === "coming soon"
+                          ? ""
+                          : "animate-hover"
+                      }
+                      _hover={
+                        item.title.toLocaleLowerCase() === "coming soon"
+                          ? { cursor: "not-allowed" }
+                          : { cursor: "pointer" }
+                      }
                     >
                       <Image
                         src={item.img.src}
                         alt={item.title}
                         w="full"
-                        h="200px"
-                        // objectFit={"cover"}
+                        h={
+                          item.title.toLocaleLowerCase() === "coming soon"
+                            ? "300px"
+                            : "200px"
+                        }
+                        objectFit={
+                          item.title.toLocaleLowerCase() ===
+                          "nucleus free icons"
+                            ? "fill"
+                            : "cover"
+                        }
                         objectPosition={"center"}
-                        roundedTop={"md"}
                       />
 
                       <Box py={5} p={2}>

@@ -64,6 +64,12 @@ h4:after {
   left: 0.5em;
 }
 
+.animate-hover:hover {
+  transition: opacity 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
 /* EXAMPLE GLOBAL CSS */
 .dangerouslySetInnerHTML {
   /* width: 50%; */
