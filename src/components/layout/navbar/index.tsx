@@ -19,16 +19,16 @@ export default function Navbar() {
   const router = useRouter();
   const listPage = [
     { title: "about", url: "/about" },
-    { title: "portfolio", url: "/portfolio" },
+    { title: "project", url: "/project" },
     { title: "blog", url: "/blog" },
     { title: "contact", url: "/contact" },
   ];
   const listSocial = [
-    {
-      title: "gmail",
-      image: GMAIL,
-      url: `mailto:passyah11@gmail.com?subject=Mail from our Website&body=Hello, Passyah Raffi`,
-    },
+    // {
+    //   title: "gmail",
+    //   image: GMAIL,
+    //   url: `mailto:passyah11@gmail.com?subject=Mail from our Website&body=Hello, Passyah Raffi`,
+    // },
     {
       title: "linkedin",
       image: LINKEDIN,

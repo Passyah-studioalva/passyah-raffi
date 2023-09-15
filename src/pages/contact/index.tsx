@@ -4,7 +4,7 @@ import Hero from "@src/components/global/hero";
 import Email from "@src/components/global/email";
 import HERO from "@assets/contact.JPG";
 import IG from "@assets/icon/instagram.png";
-import MAIL from "@assets/icon/gmail.png";
+// import MAIL from "@assets/icon/gmail.png";
 import FB from "@assets/icon/facebook.png";
 import TW from "@assets/icon/twitter.png";
 import LINKEDIN from "@assets/icon/linkedin.png";
@@ -17,11 +17,11 @@ const ContactPage: React.FC = () => {
   <h3>Contact me via social media or email below.<h3/>
   `;
   const social = [
-    {
-      alt: "Gmail",
-      src: MAIL,
-      url: "mailto:passyah11@gmail.com",
-    },
+    // {
+    //   alt: "Gmail",
+    //   src: MAIL,
+    //   url: "mailto:passyah11@gmail.com",
+    // },
     {
       alt: "Linkedin",
       src: LINKEDIN,

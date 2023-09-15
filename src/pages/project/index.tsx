@@ -1,11 +1,11 @@
 import { Container, Text } from "@chakra-ui/react";
 
-const PortfolioPage: React.FC = () => {
+const ProjectPage: React.FC = () => {
   return (
     <Container maxW={"container.xl"} mb={20}>
-      <Text>PORTFOLIO PAGE</Text>
+      <Text>PROJECT PAGE</Text>
     </Container>
   );
 };
 
-export default PortfolioPage;
+export default ProjectPage;

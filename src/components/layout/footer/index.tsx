@@ -4,8 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   const listPage = [
     { title: "about", url: "/about" },
-    { title: "book", url: "/book" },
-    { title: "portfolio", url: "/portfolio" },
+    { title: "project", url: "/project" },
     { title: "blog", url: "/blog" },
     { title: "contact", url: "/contact" },
   ];

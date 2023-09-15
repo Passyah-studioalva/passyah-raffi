@@ -6,10 +6,14 @@ import {
   Flex,
   SimpleGrid,
   Grid,
-  Center,
 } from "@chakra-ui/react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import HTML from "@assets/hero/html.svg";
+import CSS from "@assets/hero/css.svg";
+import JS from "@assets/hero/js.svg";
+import TS from "@assets/hero/typescript-icon.svg";
+import CODE from "@assets/codes-removebg-preview.png";
 
 interface Props {
   url?: string;
@@ -26,6 +30,24 @@ type SOCIAL = {
 }[];
 
 const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
+  const logos = [
+    {
+      img: HTML,
+      alt: "html",
+    },
+    {
+      img: CSS,
+      alt: "css",
+    },
+    {
+      img: JS,
+      alt: "js",
+    },
+    {
+      img: TS,
+      alt: "ts",
+    },
+  ];
   return (
     <>
       {!about ? (
@@ -46,14 +68,17 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             fontSize={"40px"}
             textAlign={"center"}
             fontStyle={"italic"}
+            zIndex={10}
           >
             <Text as={"h1"} fontSize={"100px"} className="text-hero">
               Passyah Raffi
             </Text>
             <Text as={"h2"}>Frontend Developer</Text>
-            <Text as={"p"} fontSize={"20px"}>
-              passyah11@gmail.com
-            </Text>
+            <Link href={"mailto:passyah11@gmail.com"}>
+              <Text as={"p"} fontSize={"20px"} className="animate-hover">
+                passyah11@gmail.com
+              </Text>
+            </Link>
           </Box>
 
           <Image
@@ -64,7 +89,82 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             w={"full"}
             h={"1400px"}
             objectFit={"cover"}
+            zIndex={10}
           />
+
+          <Image
+            position={"absolute"}
+            left={"75%"}
+            src={CODE.src}
+            alt={"code"}
+            w={"500px"}
+            h={"500px"}
+          />
+
+          {logos.map((item, idx) => {
+            return (
+              <Box key={idx}>
+                <Image
+                  position={"absolute"}
+                  src={item.img.src}
+                  alt={item.alt}
+                  w={"100px"}
+                  h={"100px"}
+                  objectFit={"cover"}
+                  top={
+                    idx === 0
+                      ? "20px"
+                      : idx === 1
+                      ? "150px"
+                      : idx === 2
+                      ? "300px"
+                      : "450px"
+                  }
+                  left={
+                    idx === 0
+                      ? "20%"
+                      : idx === 1
+                      ? "30%"
+                      : idx === 2
+                      ? "40%"
+                      : "50%"
+                  }
+                />
+              </Box>
+            );
+          })}
+          {logos.map((item, idx) => {
+            return (
+              <Box key={idx}>
+                <Image
+                  position={"absolute"}
+                  src={item.img.src}
+                  alt={item.alt}
+                  w={"100px"}
+                  h={"100px"}
+                  objectFit={"cover"}
+                  top={
+                    idx === 0
+                      ? "320px"
+                      : idx === 1
+                      ? "450px"
+                      : idx === 2
+                      ? "600px"
+                      : "850px"
+                  }
+                  left={
+                    idx === 0
+                      ? "20%"
+                      : idx === 1
+                      ? "30%"
+                      : idx === 2
+                      ? "40%"
+                      : "50%"
+                  }
+                />
+              </Box>
+            );
+          })}
         </Flex>
       ) : (
         <Container maxW={"container.xl"} mt={10} position={"relative"}>
