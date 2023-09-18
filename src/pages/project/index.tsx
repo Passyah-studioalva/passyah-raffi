@@ -82,7 +82,7 @@ export default function ProjectPage() {
   ];
 
   return (
-    <Container maxW={"container.xl"} mb={20}>
+    <Container maxW={"container.xl"} mb={20} mt={'70px'}>
       <Box mt={10}>
         <Text
           as="h4"

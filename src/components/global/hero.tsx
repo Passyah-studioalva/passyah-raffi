@@ -96,7 +96,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             fontSize={"40px"}
             textAlign={"center"}
             fontStyle={"italic"}
-            zIndex={[100]}
+            zIndex={[50]}
           >
             <Text
               as={"h1"}

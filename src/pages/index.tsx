@@ -79,8 +79,8 @@ export default function HomePage() {
   ];
 
   return (
-    <>
-      <Hero url={HERO.src} alt="hero" />
+    <Box mt={'70px'}>
+      <Hero url={HERO.src} alt="hero"  />
       <Container maxW={"container.xl"} mb={20}>
         <Box mt={10}>
           <Text
@@ -147,6 +147,6 @@ export default function HomePage() {
           </SimpleGrid>
         </Box>
       </Container>
-    </>
+    </Box>
   );
 }

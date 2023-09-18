@@ -11,6 +11,14 @@
   font-family: "Proxima Nova Extra Condensed", sans-serif;
 }
 
+.sticky-wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  z-index: 100;
+}
+
 .logo {
   font-family: "Emilys Candy", cursive;
 }

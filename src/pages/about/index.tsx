@@ -92,7 +92,7 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <>
+    <Box mt={'70px'}>
       <Container maxW={"full"} shadow={"md"} pb={20}>
         <Container maxW={"container.xl"}>
           {/* HERO */}
@@ -273,7 +273,7 @@ const AboutPage: React.FC = () => {
           </Box>
         </Container>
       </Container>
-    </>
+    </Box>
   );
 };
 

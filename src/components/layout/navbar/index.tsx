@@ -60,7 +60,7 @@ export default function Navbar() {
   ];
 
   return (
-    <Box bg={"#111"} color={"gray.100"}>
+    <Box bg={"#111"} color={"gray.100"} className="sticky-wrap">
       <Container
         display={["none", "none", "none", "flex"]}
         justifyContent={"space-between"}
