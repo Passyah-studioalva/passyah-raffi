@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   Box,
   Center,
@@ -6,17 +7,26 @@ import {
   ListItem,
   UnorderedList,
   Image,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  IconButton,
+  Grid,
 } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import Link from "next/link";
-import GMAIL from "@assets/icon/gmail.svg";
 import LINKEDIN from "@assets/icon/linkedin.svg";
 import FB from "@assets/icon/facebook.svg";
 import IG from "@assets/icon/instagram.svg";
 import TW from "@assets/icon/twitter-1.svg";
-import { useRouter } from "next/router";
 
 export default function Navbar() {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const listPage = [
     { title: "about", url: "/about" },
     { title: "project", url: "/project" },
@@ -54,7 +64,7 @@ export default function Navbar() {
   return (
     <Box bg={"#111"} color={"gray.100"}>
       <Container
-        display={"flex"}
+        display={["none", "none", "none", "flex"]}
         justifyContent={"space-between"}
         alignItems={"center"}
         maxW={"container.xl"}
@@ -114,6 +124,70 @@ export default function Navbar() {
             })}
           </UnorderedList>
         </Flex>
+      </Container>
+
+      <Container
+        display={["flex", "flex", "flex", "none"]}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        maxW={"container.xl"}
+        zIndex={100}
+        h={"92px"}
+      >
+        <Link href={"/"}>
+          <Center
+            rounded={"full"}
+            minH={"80px"}
+            w={"80px"}
+            fontSize={40}
+            className="logo animate-hover"
+            bg={"white"}
+            color={"black"}
+          >
+            PR
+          </Center>
+        </Link>
+        <IconButton
+          variant="ghost"
+          colorScheme="ink"
+          aria-label="Call Sage"
+          fontSize="30px"
+          icon={<HamburgerIcon />}
+          onClick={onOpen}
+          display={{
+            md: "block",
+            lg: "none",
+          }}
+        />
+        <Drawer onClose={onClose} isOpen={isOpen} size={"full"}>
+          <DrawerOverlay />
+          <DrawerContent bgColor={"#111"} color={"gray.100"}>
+            <DrawerCloseButton boxSize={"40px"} fontSize="20px" />
+            <DrawerBody mt={"150px"}>
+              <UnorderedList display={"grid"} gap={"50px"} fontSize={20}>
+                {listPage.map((item, idx) => {
+                  return (
+                    <Link key={idx} href={item.url}>
+                      <ListItem
+                        className="animate-hover"
+                        opacity={
+                          router.asPath
+                            .replaceAll("/", "")
+                            .toLocaleLowerCase() ===
+                          item.title.toLocaleLowerCase()
+                            ? 0.4
+                            : 1
+                        }
+                      >
+                        {item.title}
+                      </ListItem>
+                    </Link>
+                  );
+                })}
+              </UnorderedList>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </Container>
     </Box>
   );

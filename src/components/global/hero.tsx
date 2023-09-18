@@ -14,6 +14,10 @@ import CSS from "@assets/hero/css.svg";
 import JS from "@assets/hero/js.svg";
 import TS from "@assets/hero/typescript-icon.svg";
 import CODE from "@assets/codes-removebg-preview.png";
+import REACT from "@assets/icon/react.svg";
+import VUE from "@assets/icon/vue.svg";
+import TW from "@assets/icon/tailwind.svg";
+import CK from "@assets/icon/CK.svg";
 
 interface Props {
   url?: string;
@@ -30,7 +34,7 @@ type SOCIAL = {
 }[];
 
 const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
-  const logos = [
+  const logo1 = [
     {
       img: HTML,
       alt: "html",
@@ -48,6 +52,30 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
       alt: "ts",
     },
   ];
+  const logo2 = [
+    {
+      img: REACT,
+      alt: "react",
+    },
+    {
+      img: VUE,
+      alt: "vue",
+    },
+    {
+      img: TW,
+      alt: "tailwind",
+    },
+    {
+      img: CK,
+      alt: "chakraui",
+    },
+  ];
+  const logo3 = [
+    {
+      img: CK,
+      alt: "chakraui",
+    },
+  ];
   return (
     <>
       {!about ? (
@@ -55,7 +83,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           bgColor={"blackAlpha.800"}
           justifyContent={"center"}
           alignItems={"center"}
-          minH={"700px"}
+          minH={"500px"}
           position={"relative"}
           overflow={"hidden"}
           pt={20}
@@ -63,14 +91,14 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           <Box
             as={"span"}
             position={"absolute"}
-            left={"15%"}
+            left={"10%"}
             color={"white"}
             fontSize={"40px"}
             textAlign={"center"}
             fontStyle={"italic"}
             zIndex={10}
           >
-            <Text as={"h1"} fontSize={"100px"} className="text-hero">
+            <Text as={"h1"} fontSize={"80px"} className="text-hero">
               Passyah Raffi
             </Text>
             <Text as={"h2"}>Frontend Developer</Text>
@@ -87,21 +115,21 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             src={url}
             alt={alt}
             w={"full"}
-            h={"1400px"}
+            h={"1000px"}
             objectFit={"cover"}
             zIndex={10}
           />
 
           <Image
             position={"absolute"}
-            left={"75%"}
+            left={"73%"}
             src={CODE.src}
             alt={"code"}
             w={"500px"}
             h={"500px"}
           />
 
-          {logos.map((item, idx) => {
+          {logo1.map((item, idx) => {
             return (
               <Box key={idx}>
                 <Image
@@ -115,10 +143,10 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                     idx === 0
                       ? "20px"
                       : idx === 1
-                      ? "150px"
+                      ? "100px"
                       : idx === 2
-                      ? "300px"
-                      : "450px"
+                      ? "200px"
+                      : "300px"
                   }
                   left={
                     idx === 0
@@ -133,7 +161,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               </Box>
             );
           })}
-          {logos.map((item, idx) => {
+          {logo2.map((item, idx) => {
             return (
               <Box key={idx}>
                 <Image
@@ -145,12 +173,12 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                   objectFit={"cover"}
                   top={
                     idx === 0
-                      ? "320px"
+                      ? "200px"
                       : idx === 1
-                      ? "450px"
+                      ? "300px"
                       : idx === 2
-                      ? "600px"
-                      : "850px"
+                      ? "400px"
+                      : "500px"
                   }
                   left={
                     idx === 0
@@ -165,9 +193,25 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               </Box>
             );
           })}
+          {logo3.map((item, idx) => {
+            return (
+              <Box key={idx}>
+                <Image
+                  position={"absolute"}
+                  src={item.img.src}
+                  alt={item.alt}
+                  w={"100px"}
+                  h={"100px"}
+                  objectFit={"cover"}
+                  top={"400px"}
+                  left={"20%"}
+                />
+              </Box>
+            );
+          })}
         </Flex>
       ) : (
-        <Container maxW={"container.xl"} mt={10} position={"relative"}>
+        <Container maxW={"container.xl"} position={"relative"}>
           <Flex gap={5} justifyContent={"space-between"} alignItems={"center"}>
             <Grid gap={10} w={"50%"}>
               <Box
@@ -197,7 +241,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               </SimpleGrid>
             </Grid>
 
-            <Image src={url} alt={alt} w={"50%"} />
+            <Image src={url} alt={alt} maxH={"700px"} w={"50%"} objectFit={"cover"} />
           </Flex>
         </Container>
       )}

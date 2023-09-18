@@ -90,7 +90,7 @@ export default function HomePage() {
             fontSize={25}
             color={"gray.600"}
           >
-            My Project
+            SOME OF MY LATEST WORK
           </Text>
           <SimpleGrid columns={[1, 2, 2, 3]} spacing={10}>
             {dummy.map((item, idx) => {

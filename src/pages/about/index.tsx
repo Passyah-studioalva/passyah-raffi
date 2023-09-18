@@ -4,10 +4,8 @@ import {
   Box,
   ListItem,
   UnorderedList,
-  Center,
   Flex,
   Image,
-  SimpleGrid,
 } from "@chakra-ui/react";
 import Hero from "@src/components/global/hero";
 import GLORY from "@assets/level-experience/Glory.jpg";
@@ -15,9 +13,6 @@ import MYTHIC from "@assets/level-experience/Mythic.jpg";
 import LEGEND from "@assets/level-experience/Legend.jpg";
 import EPIC from "@assets/level-experience/Epic.jpg";
 import GRANDMASTER from "@assets/level-experience/Grandmaster.jpg";
-import MASTER from "@assets/level-experience/Master.jpg";
-import ELITE from "@assets/level-experience/Elite.jpg";
-import WARRIOR from "@assets/level-experience/Warrior.jpg";
 import HERO from "@assets/img-hero.JPG";
 import MONITOR from "@assets/monitor.png";
 import { useRouter } from "next/router";
@@ -25,9 +20,13 @@ import { useRouter } from "next/router";
 const AboutPage: React.FC = () => {
   const router = useRouter();
   const text = `
-  <h1>${router.asPath.replaceAll("/", "")}.</h1>
-  <p>I'm a front-end developer based on DKI Jakarta, Indonesia.<h3/>
-  <p>Since 2022 I've known programs to explore HTML, CSS, and javascript. I focused on studying at the <a target="_blank" rel="noopener noreferrer" href="https://dumbways.id/">Dumbways.id</a> bootcamp and until now I work as a frontend developer team at <a target="_blank" rel="noopener noreferrer" href="https://studioalva.co/">studioalva.co.</a><p/>
+    <h1>${router.asPath.replaceAll("/", "")}.</h1>
+    <h3>I'm a front-end developer based on DKI Jakarta, Indonesia.<h3/>
+    <p>
+      Since 2022 I've known programs to explore HTML, CSS, and javascript. </br>
+      I focused on studying at the <a target="_blank" rel="noopener noreferrer" href="https://dumbways.id/">Dumbways.id</a> bootcamp.</br>
+      I currently work as a frontend developer at <a target="_blank" rel="noopener noreferrer" href="https://studioalva.co/">studioalva.co.</a>
+    <p/>
   `;
 
   const category = [
@@ -51,24 +50,12 @@ const AboutPage: React.FC = () => {
       title: "Grandmaster",
       img: GRANDMASTER,
     },
-    // {
-    //   title: "Master",
-    //   img: MASTER,
-    // },
-    // {
-    //   title: "Elite",
-    //   img: ELITE,
-    // },
-    // {
-    //   title: "Warrior",
-    //   img: WARRIOR,
-    // },
   ];
 
   const skills = [
     {
-      title: "HTML & CSS",
-      percentage: "100%",
+      title: "HTML CSS",
+      percentage: "95%",
       color: "#5fb2a8",
     },
     {
@@ -83,13 +70,23 @@ const AboutPage: React.FC = () => {
     },
     {
       title: "Responsive",
-      percentage: "80%",
+      percentage: "95%",
       color: "#bc8e5b",
     },
     {
-      title: "Responsive",
-      percentage: "80%",
+      title: "Restfull API",
+      percentage: "85%",
+      color: "#089cd1",
+    },
+    {
+      title: "Reusable Component",
+      percentage: "90%",
       color: "#ca4544",
+    },
+    {
+      title: "Computational Thinking",
+      percentage: "85%",
+      color: "#7729c5",
     },
   ];
 
@@ -115,15 +112,20 @@ const AboutPage: React.FC = () => {
           <Box w={"full"} h={"500px"} overflow={"hidden"}>
             <Image src={MONITOR.src} alt="screen" w={"full"} h={"full"} />
           </Box>
-          {/* <Flex flexDir={"column"} justifyContent={"center"} w={"full"}> */}
-          <Flex flexDir={"column"} mt={20} w={"full"}>
-            <Text fontSize={45}>Random facts</Text>
-            <Text fontSize={25} color={"gray.500"}>
+          <Flex
+            flexDir={"column"}
+            mt={20}
+            w={"full"}
+            className="dangerouslySetInnerHTML"
+          >
+            <Text as={"h3"}>Random facts</Text>
+            <Text as={"p"}>
               I like to drink milk tea <br />
               I&apos;m interested in a challenge <br />
               my hobby to play basketball <br />
               I like to work flexibility <br />
-              I want to live in Japan <br />I sometimes take time to study
+              I want to live in Japan <br />
+              I like to take time to study and read
             </Text>
           </Flex>
         </Container>
@@ -134,8 +136,8 @@ const AboutPage: React.FC = () => {
         maxW={"full"}
         bg={"#FAFAFA"}
         pt={20}
+        pb={10}
         my={1}
-        pb={20}
         shadow={"md"}
       >
         <Container maxW={"container.xl"}>
@@ -145,6 +147,7 @@ const AboutPage: React.FC = () => {
 
           <Flex
             position={"relative"}
+            className="hidden-1095"
             alignContent={"end"}
             minH={"600px"}
             overflow={"hidden"}
@@ -163,9 +166,10 @@ const AboutPage: React.FC = () => {
                       className="chart-category"
                     />
                     <Text
-                      ml={"55px"}
+                      ml={"50px"}
                       color={"gray.600"}
                       className="chart-category"
+                      fontSize={"25px"}
                     >
                       {item.title}
                     </Text>
@@ -184,9 +188,9 @@ const AboutPage: React.FC = () => {
               right={0}
               position={"absolute"}
               alignItems={"end"}
-              gap={10}
+              gap={["20px", "20px", "20px", "20px", "40px"]}
               h={"full"}
-              w={"82%"}
+              w={["80%", "80%", "80%", "82%", "84%"]}
               top={"23px"}
             >
               {skills.map((item, idx) => {
@@ -194,8 +198,8 @@ const AboutPage: React.FC = () => {
                   <Box
                     key={idx}
                     bg={item.color}
-                    maxW={"150px"}
-                    minW={"150px"}
+                    maxW={["100px"]}
+                    minW={["100px"]}
                     display={"flex"}
                     flexDir={"column"}
                     alignItems={"center"}
@@ -205,10 +209,15 @@ const AboutPage: React.FC = () => {
                     color={"white"}
                     textAlign={"center"}
                   >
-                    <Text fontSize={80} overflow={"hidden"} px={5}>
+                    <Text fontSize={["50px"]} overflow={"hidden"} px={5}>
                       {item.percentage}
                     </Text>
-                    <Text fontSize={25.6} overflow={"hidden"} pb={10} px={5}>
+                    <Text
+                      fontSize={["20px"]}
+                      overflow={"hidden"}
+                      pb={10}
+                      px={5}
+                    >
                       {item.title}
                     </Text>
                   </Box>
