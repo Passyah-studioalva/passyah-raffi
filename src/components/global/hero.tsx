@@ -83,7 +83,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           bgColor={"blackAlpha.800"}
           justifyContent={"center"}
           alignItems={"center"}
-          minH={["400px","500px","500px","500px"]}
+          minH={["400px", "500px", "500px", "500px"]}
           position={"relative"}
           overflow={"hidden"}
           pt={20}
@@ -119,7 +119,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             src={url}
             alt={alt}
             w={"full"}
-            h={["900px","1000px","1000px","1000px"]}
+            h={["900px", "1000px", "1000px", "1000px"]}
             objectFit={"cover"}
             zIndex={10}
           />
@@ -217,20 +217,24 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           })}
         </Flex>
       ) : (
-        <Container maxW={"container.xl"} position={"relative"}>
-          <Flex gap={5} justifyContent={"space-between"} alignItems={"center"}>
-            <Grid gap={10} w={"50%"}>
-              <Box
-                as="div"
-                className="dangerouslySetInnerHTML"
-                dangerouslySetInnerHTML={{ __html: text }}
-                /* EXAMPLE INLINCE CSS */
-                // sx={{
-                //   "& h1": {
-                //       fontWeight: 600
-                //   }
-                // }}
-              />
+        <Box
+          display={["grid", "grid", "flex", "flex"]}
+          gap={[2, 2, 2, 5]}
+          flexDir={["row-reverse", "row-reverse", "row-reverse", "row"]}
+          justifyContent={["center", "center", "center", "space-between"]}
+          alignItems={"center"}
+        >
+          <Grid
+            gap={10}
+            w={["100%", "100%", "100%", "50%"]}
+            mt={[10, 10, 10, 0]}
+          >
+            <Box
+              as="div"
+              className="dangerouslySetInnerHTML"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+            {social && (
               <SimpleGrid columns={5}>
                 {social?.map((item) => {
                   return (
@@ -240,22 +244,23 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                         alt={item.alt}
                         w={["50px", "50px", "50px", "70px"]}
                         h={["50px", "50px", "50px", "70px"]}
+                        objectFit={"cover"}
                       />
                     </Link>
                   );
                 })}
               </SimpleGrid>
-            </Grid>
+            )}
+          </Grid>
 
-            <Image
-              src={url}
-              alt={alt}
-              maxH={"700px"}
-              w={"50%"}
-              objectFit={"cover"}
-            />
-          </Flex>
-        </Container>
+          <Image
+            src={url}
+            alt={alt}
+            maxH={["500px", "500px", "500px", "700px"]}
+            w={["100%", "100%", "100%", "50%"]}
+            objectFit={"cover"}
+          />
+        </Box>
       )}
     </>
   );

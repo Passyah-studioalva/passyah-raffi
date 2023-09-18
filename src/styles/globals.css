@@ -99,6 +99,25 @@ h4:after {
   border-color: #0074d9;
 }
 
+@media only screen and (max-width: 992px) {
+  .dangerouslySetInnerHTML h1 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .dangerouslySetInnerHTML h3 {
+    font-size: 25px;
+    color: gray;
+    font-weight: normal;
+  }
+  .dangerouslySetInnerHTML p {
+    font-size: 20px;
+    color: gray;
+    font-weight: normal;
+    padding-top: 10px;
+  }
+}
+
 @media only screen and (max-width: 1095px) {
   .hidden-1095 {
     visibility: hidden;
