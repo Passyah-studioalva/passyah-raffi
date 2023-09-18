@@ -6,6 +6,7 @@ import {
   UnorderedList,
   Flex,
   Image,
+  Grid,
 } from "@chakra-ui/react";
 import Hero from "@src/components/global/hero";
 import GLORY from "@assets/level-experience/Glory.jpg";
@@ -65,7 +66,7 @@ const AboutPage: React.FC = () => {
     },
     {
       title: "TypeScript",
-      percentage: "90%",
+      percentage: "85%",
       color: "#dfae36",
     },
     {
@@ -103,20 +104,28 @@ const AboutPage: React.FC = () => {
       <Container maxW={"full"} bg={"#F5F5F5"} mt={1} shadow={"md"}>
         <Container
           maxW={"container.xl"}
-          display={"flex"}
-          gap={10}
+          display={["grid", "grid", "flex", "flex"]}
+          gap={[0, 0, 0, 10]}
           justifyContent={"space-between"}
           color={"gray.600"}
-          mt={20}
+          mt={[0, 0, 0, 30]}
+          mb={[30]}
         >
           <Box w={"full"} h={"500px"} overflow={"hidden"}>
-            <Image src={MONITOR.src} alt="screen" w={"full"} h={"full"} />
+            <Image
+              src={MONITOR.src}
+              alt="screen"
+              w={"full"}
+              h={"full"}
+              objectFit={"cover"}
+            />
           </Box>
           <Flex
             flexDir={"column"}
-            mt={20}
+            mt={[10, 10, 10, 20]}
             w={"full"}
             className="dangerouslySetInnerHTML"
+            textAlign={["center", "center", "center", "start"]}
           >
             <Text as={"h3"}>Random facts</Text>
             <Text as={"p"}>
@@ -124,8 +133,8 @@ const AboutPage: React.FC = () => {
               I&apos;m interested in a challenge <br />
               my hobby to play basketball <br />
               I like to work flexibility <br />
-              I want to live in Japan <br />
-              I like to take time to study and read
+              I want to live in Japan <br />I like to take time to study and
+              read
             </Text>
           </Flex>
         </Container>
@@ -135,19 +144,19 @@ const AboutPage: React.FC = () => {
       <Container
         maxW={"full"}
         bg={"#FAFAFA"}
-        pt={20}
+        pt={[10, 10, 10, 20]}
         pb={10}
         my={1}
         shadow={"md"}
       >
         <Container maxW={"container.xl"}>
-          <Text as={"h1"} fontSize={30} textAlign={"end"}>
+          <Text as={"h1"} fontSize={30} textAlign={["center", "center", "center", "center", "end"]}>
             My skills
           </Text>
 
-          <Flex
+          <Box
             position={"relative"}
-            className="hidden-1095"
+            display={["none", "none", "none", "none", "flex"]}
             alignContent={"end"}
             minH={"600px"}
             overflow={"hidden"}
@@ -224,7 +233,44 @@ const AboutPage: React.FC = () => {
                 );
               })}
             </Flex>
-          </Flex>
+          </Box>
+
+          <Box
+            display={["grid", "grid", "grid", "grid", "none"]}
+            gap={2}
+            borderLeft={"1px"}
+            borderBottom={"1px"}
+            borderColor={"#cbd5e0"}
+            mt={10}
+          >
+            {skills.map((item, idx) => {
+              return (
+                <Flex key={idx}>
+                  <Box
+                    bg={item.color}
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"space-between"}
+                    h={"50px"}
+                    w={item.percentage}
+                    roundedRight={"md"}
+                    color={"white"}
+                    overflow={"hidden"}
+                  >
+                    <Text pl={5} fontSize={["20px"]}>{item.title}</Text>
+                    <Text
+                      whiteSpace={"nowrap"}
+                      fontSize={["20px"]}
+                      overflow={"hidden"}
+                      pr={5}
+                    >
+                      {item.percentage}
+                    </Text>
+                  </Box>
+                </Flex>
+              );
+            })}
+          </Box>
         </Container>
       </Container>
     </>

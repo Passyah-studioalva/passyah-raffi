@@ -120,7 +120,7 @@ h4:after {
 
 @media only screen and (max-width: 1095px) {
   .hidden-1095 {
-    visibility: hidden;
+    display: none;
   }
 }
 
