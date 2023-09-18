@@ -63,17 +63,8 @@ const ContactPage: React.FC = () => {
           />
         </Container>
       </Container>
-      <Container maxW={"full"} bg={"#F5F5F5"} mt={1} shadow={"md"} pb={'150px'}>
-        <Container
-          maxW={"container.xl"}
-          display={"flex"}
-          gap={10}
-          justifyContent={"space-between"}
-          color={"gray.600"}
-          mt={20}
-        >
-          <Email />
-        </Container>
+      <Container maxW={"full"} bg={"#F5F5F5"} mt={1} pb={20} shadow={"md"}>
+        <Email />
       </Container>
     </>
   );

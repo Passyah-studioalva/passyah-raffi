@@ -79,6 +79,10 @@ h4:after {
   font-weight: 600;
   line-height: normal;
 }
+.dangerouslySetInnerHTML h2 {
+  font-size: 60px;
+  line-height: normal;
+}
 .dangerouslySetInnerHTML h3 {
   font-size: 30px;
   color: gray;
@@ -103,6 +107,10 @@ h4:after {
   .dangerouslySetInnerHTML h1 {
     font-size: 50px;
     font-weight: 600;
+    line-height: normal;
+  }
+  .dangerouslySetInnerHTML h2 {
+    font-size: 40px;
     line-height: normal;
   }
   .dangerouslySetInnerHTML h3 {

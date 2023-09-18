@@ -225,7 +225,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           alignItems={"center"}
         >
           <Grid
-            gap={10}
+            gap={[5, 5, 5, 10]}
             w={["100%", "100%", "100%", "50%"]}
             mt={[10, 10, 10, 0]}
           >
@@ -235,30 +235,33 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               dangerouslySetInnerHTML={{ __html: text }}
             />
             {social && (
-              <SimpleGrid columns={5}>
+              <Flex gap={[5]}>
                 {social?.map((item) => {
                   return (
                     <Link key={item.alt} href={item.url}>
                       <Image
                         src={item?.src?.src}
                         alt={item.alt}
-                        w={["50px", "50px", "50px", "70px"]}
-                        h={["50px", "50px", "50px", "70px"]}
+                        w={["40px", "40px", "40px", "70px"]}
+                        h={["40px", "40px", "40px", "70px"]}
                         objectFit={"cover"}
+                        className="animate-hover"
                       />
                     </Link>
                   );
                 })}
-              </SimpleGrid>
+              </Flex>
             )}
           </Grid>
 
           <Image
             src={url}
             alt={alt}
-            maxH={["500px", "500px", "500px", "700px"]}
-            w={["100%", "100%", "100%", "50%"]}
+            maxH={["500px","600px","700px","700px"]}
+            minH={["500px","600px","700px","700px"]}
+            w={["100vw", "100vw", "100vw", "50%"]}
             objectFit={"cover"}
+            mt={social && [5, 5, 5, 0]}
           />
         </Box>
       )}

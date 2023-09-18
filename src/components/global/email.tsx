@@ -18,19 +18,35 @@ const Email: React.FC = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <Container maxW={"container.xl"} mt={10} position={"relative"}>
+    <Container
+      maxW={"container.xl"}
+      mt={10}
+      position={"relative"}
+      color={"gray.600"}
+      className="dangerouslySetInnerHTML"
+    >
       <Text as={"h2"} fontSize={50} px={1} mb={10}>
         Send me an email
       </Text>
       <Grid
-        templateColumns="repeat(2, 1fr)"
-        templateRows="repeat(2, 1fr)"
-        gap={5}
+        templateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+        templateRows={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+        gap={[0, 0, 0, 5]}
         pb={1}
       >
-        <GridItem fontSize={25}>
+        <GridItem>
           <FormControl isRequired p={1}>
-            <FormLabel fontSize={25}>Name</FormLabel>
+            <FormLabel as={"p"}>Name</FormLabel>
             <Input
               type="text"
               value={name}
@@ -42,9 +58,12 @@ const Email: React.FC = () => {
             />
           </FormControl>
         </GridItem>
-        <GridItem rowSpan={2}>
+        <GridItem
+          display={["none", "none", "none", "flex"]}
+          rowSpan={[0, 0, 0, 2]}
+        >
           <FormControl isRequired p={1}>
-            <FormLabel fontSize={25}>Message</FormLabel>
+            <FormLabel as={"p"}>Message</FormLabel>
             <Textarea
               placeholder="input message"
               resize={"none"}
@@ -57,7 +76,7 @@ const Email: React.FC = () => {
         </GridItem>
         <GridItem>
           <FormControl isRequired p={1}>
-            <FormLabel fontSize={25}>Email</FormLabel>
+            <FormLabel as={"p"}>Email</FormLabel>
             <Input
               type="email"
               value={email}
@@ -66,6 +85,22 @@ const Email: React.FC = () => {
               fontSize={20}
               py={7}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </FormControl>
+        </GridItem>
+        <GridItem
+          display={["flex", "flex", "flex", "none"]}
+          rowSpan={[0, 0, 0, 2]}
+        >
+          <FormControl isRequired p={1}>
+            <FormLabel as={"p"}>Message</FormLabel>
+            <Textarea
+              placeholder="input message"
+              resize={"none"}
+              height={"190px"}
+              fontSize={20}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </FormControl>
         </GridItem>
