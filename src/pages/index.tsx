@@ -79,73 +79,71 @@ export default function HomePage() {
   ];
 
   return (
-    <Box mt={'70px'}>
-      <Hero url={HERO.src} alt="hero"  />
+    <Box mt={"70px"}>
+      <Hero url={HERO.src} alt="hero" />
       <Container maxW={"container.xl"} mb={20}>
-        <Box mt={10}>
-          <Text
-            as="h4"
-            textAlign={"center"}
-            my={10}
-            fontSize={25}
-            color={"gray.600"}
-          >
-            SOME OF MY LATEST WORK
-          </Text>
-          <SimpleGrid columns={[1, 2, 2, 3]} spacing={10}>
-            {dummy.map((item, idx) => {
-              return (
-                <Link key={idx} href={item.url} passHref legacyBehavior>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <Box
-                      bg={item.color}
-                      color={"white"}
-                      minH="300px"
-                      maxH="300px"
-                      rounded={"md"}
-                      overflow={"hidden"}
-                      className={
+        <Text
+          as="h4"
+          textAlign={"center"}
+          my={10}
+          pt={[0, 0, 0, 10]}
+          fontSize={25}
+          color={"gray.600"}
+        >
+          SOME OF MY LATEST WORK
+        </Text>
+        <SimpleGrid columns={[1, 2, 2, 3]} spacing={10}>
+          {dummy.map((item, idx) => {
+            return (
+              <Link key={idx} href={item.url} passHref legacyBehavior>
+                <a target="_blank" rel="noopener noreferrer">
+                  <Box
+                    bg={item.color}
+                    color={"white"}
+                    minH="300px"
+                    maxH="300px"
+                    rounded={"md"}
+                    overflow={"hidden"}
+                    className={
+                      item.title.toLocaleLowerCase() === "coming soon"
+                        ? ""
+                        : "animate-hover"
+                    }
+                    _hover={
+                      item.title.toLocaleLowerCase() === "coming soon"
+                        ? { cursor: "not-allowed" }
+                        : { cursor: "pointer" }
+                    }
+                  >
+                    <Image
+                      src={item.img.src}
+                      alt={item.title}
+                      w="full"
+                      h={
                         item.title.toLocaleLowerCase() === "coming soon"
-                          ? ""
-                          : "animate-hover"
+                          ? "300px"
+                          : "200px"
                       }
-                      _hover={
-                        item.title.toLocaleLowerCase() === "coming soon"
-                          ? { cursor: "not-allowed" }
-                          : { cursor: "pointer" }
+                      objectFit={
+                        item.title.toLocaleLowerCase() === "nucleus free icons"
+                          ? "fill"
+                          : "cover"
                       }
-                    >
-                      <Image
-                        src={item.img.src}
-                        alt={item.title}
-                        w="full"
-                        h={
-                          item.title.toLocaleLowerCase() === "coming soon"
-                            ? "300px"
-                            : "200px"
-                        }
-                        objectFit={
-                          item.title.toLocaleLowerCase() ===
-                          "nucleus free icons"
-                            ? "fill"
-                            : "cover"
-                        }
-                        objectPosition={"center"}
-                      />
+                      objectPosition={"center"}
+                    />
 
-                      <Box py={5} p={2}>
-                        <Text fontSize={20} fontWeight={600}>
-                          {item.title}
-                        </Text>
-                        <Text>{item.desc}</Text>
-                      </Box>
+                    <Box py={5} p={2}>
+                      <Text fontSize={20} fontWeight={600}>
+                        {item.title}
+                      </Text>
+                      <Text>{item.desc}</Text>
                     </Box>
-                  </a>
-                </Link>
-              );
-            })}
-          </SimpleGrid>
-        </Box>
+                  </Box>
+                </a>
+              </Link>
+            );
+          })}
+        </SimpleGrid>
       </Container>
     </Box>
   );
