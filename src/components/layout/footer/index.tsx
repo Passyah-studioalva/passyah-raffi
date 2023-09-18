@@ -14,13 +14,13 @@ export default function Footer() {
     <Container
       maxW={"container.xl"}
       display={"flex"}
-      justifyContent={"space-between"}
+      justifyContent={["center","center","center","space-between"]}
       alignItems={"center"}
       minH={"80px"}
       color={"gray.600"}
     >
       <Text>© 2023 Muhammad Passyah Abdul Raffi</Text>
-      <UnorderedList display={"flex"} gap={10}>
+      <UnorderedList display={["none","none","none","flex"]} gap={10}>
         {listPage.map((item, idx) => {
           return (
             <Link key={idx} href={item.url}>

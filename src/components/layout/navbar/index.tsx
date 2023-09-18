@@ -12,10 +12,8 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
   IconButton,
-  Grid,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Link from "next/link";
@@ -132,14 +130,14 @@ export default function Navbar() {
         alignItems={"center"}
         maxW={"container.xl"}
         zIndex={100}
-        h={"92px"}
+        py={2}
       >
         <Link href={"/"}>
           <Center
             rounded={"full"}
-            minH={"80px"}
-            w={"80px"}
-            fontSize={40}
+            minH={"55px"}
+            w={"55px"}
+            fontSize={30}
             className="logo animate-hover"
             bg={"white"}
             color={"black"}
@@ -178,6 +176,7 @@ export default function Navbar() {
                             ? 0.4
                             : 1
                         }
+                        onClick={onClose}
                       >
                         {item.title}
                       </ListItem>

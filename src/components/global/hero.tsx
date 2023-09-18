@@ -83,22 +83,26 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           bgColor={"blackAlpha.800"}
           justifyContent={"center"}
           alignItems={"center"}
-          minH={"500px"}
+          minH={["400px","500px","500px","500px"]}
           position={"relative"}
           overflow={"hidden"}
           pt={20}
         >
           <Box
             as={"span"}
-            position={"absolute"}
-            left={"10%"}
+            position={["relative", "relative", "relative", "absolute"]}
+            left={[0, 0, 0, "10%"]}
             color={"white"}
             fontSize={"40px"}
             textAlign={"center"}
             fontStyle={"italic"}
-            zIndex={10}
+            zIndex={[100]}
           >
-            <Text as={"h1"} fontSize={"80px"} className="text-hero">
+            <Text
+              as={"h1"}
+              fontSize={["60px", "60px", "60px", "80px"]}
+              className="text-hero"
+            >
               Passyah Raffi
             </Text>
             <Text as={"h2"}>Frontend Developer</Text>
@@ -111,18 +115,20 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
 
           <Image
             position={"absolute"}
-            left={"20%"}
+            left={["0%", "0%", "25%", "20%"]}
             src={url}
             alt={alt}
             w={"full"}
-            h={"1000px"}
+            h={["900px","1000px","1000px","1000px"]}
             objectFit={"cover"}
             zIndex={10}
           />
 
           <Image
             position={"absolute"}
-            left={"73%"}
+            objectFit={["contain", "fill", "fill", "fill"]}
+            top={["-100px", 0, 0, 10]}
+            left={["0%", "0%", "0%", "73%"]}
             src={CODE.src}
             alt={"code"}
             w={"500px"}
@@ -131,7 +137,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
 
           {logo1.map((item, idx) => {
             return (
-              <Box key={idx}>
+              <Box key={idx} display={["none", "none", "none", "flex"]}>
                 <Image
                   position={"absolute"}
                   src={item.img.src}
@@ -163,7 +169,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           })}
           {logo2.map((item, idx) => {
             return (
-              <Box key={idx}>
+              <Box key={idx} display={["none", "none", "none", "flex"]}>
                 <Image
                   position={"absolute"}
                   src={item.img.src}
@@ -195,7 +201,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           })}
           {logo3.map((item, idx) => {
             return (
-              <Box key={idx}>
+              <Box key={idx} display={["none", "none", "none", "flex"]}>
                 <Image
                   position={"absolute"}
                   src={item.img.src}
@@ -241,7 +247,13 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               </SimpleGrid>
             </Grid>
 
-            <Image src={url} alt={alt} maxH={"700px"} w={"50%"} objectFit={"cover"} />
+            <Image
+              src={url}
+              alt={alt}
+              maxH={"700px"}
+              w={"50%"}
+              objectFit={"cover"}
+            />
           </Flex>
         </Container>
       )}
