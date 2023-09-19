@@ -32,14 +32,16 @@ const BlogPage: React.FC = ({ blogs }: any) => {
         {blogs?.map((item: any, idx: number) => {
           return (
             <Link key={idx} href={`/blog/${item.slug.current}`}>
-              <Image
-                src={urlFor(item.coverImage.asset._ref)
-                  .height(1000)
-                  .width(2000)
-                  .url()}
-                alt={item.coverImage.asset._ref}
-                rounded={"md"}
-              />
+              <Box mb={4}>
+                <Image
+                  src={urlFor(item.coverImage.asset._ref)
+                    .height(1000)
+                    .width(2000)
+                    .url()}
+                  alt={item.coverImage.asset._ref}
+                  rounded={"md"}
+                />
+              </Box>
 
               <Flex justifyContent="space-between">
                 <Heading
@@ -49,12 +51,12 @@ const BlogPage: React.FC = ({ blogs }: any) => {
                   mb={1}
                   color="blue.500"
                   letterSpacing="-.3px"
-                  className="line-clamp"
+                  className="line-clamp-2"
                 >
                   {item.title}
                 </Heading>
               </Flex>
-              <Text fontSize={14} color="ink.900">
+              <Text fontSize={14} color="ink.900" className="line-clamp-4">
                 {item.excerpt}
               </Text>
             </Link>
