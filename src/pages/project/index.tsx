@@ -93,7 +93,7 @@ export default function ProjectPage() {
         >
           SOME OF MY LATEST WORK
         </Text>
-        <SimpleGrid columns={[1, 2, 2, 3]} spacing={10}>
+        <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
           {dummy.map((item, idx) => {
             return (
               <Link key={idx} href={item.url} passHref legacyBehavior>
