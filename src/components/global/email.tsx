@@ -20,7 +20,7 @@ const Email: React.FC = () => {
   return (
     <Container
       maxW={"container.xl"}
-      mt={10}
+      pt={10}
       position={"relative"}
       color={"gray.600"}
       className="dangerouslySetInnerHTML"
