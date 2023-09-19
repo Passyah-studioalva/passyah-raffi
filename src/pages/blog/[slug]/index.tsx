@@ -25,7 +25,7 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
     return builder.image(source);
   };
   return (
-    <Container maxW={"container.xl"} mb={20} mt={"140px"}>
+    <Container maxW={"container.xl"} mb={20} mt={["100px", "100px", "100px", "140px"]}>
       <Flex
         alignItems={"center"}
         justifyContent="center"

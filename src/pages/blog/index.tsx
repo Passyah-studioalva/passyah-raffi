@@ -18,7 +18,11 @@ const BlogPage: React.FC = ({ blogs }: any) => {
     return builder.image(source);
   };
   return (
-    <Container maxW={"container.xl"} mb={20} mt={"140px"}>
+    <Container
+      maxW={"container.xl"}
+      mb={20}
+      mt={["100px", "100px", "100px", "140px"]}
+    >
       <Box mb={20}>
         <Text as={"p"} fontSize={[20, 20, 20, 25]} fontWeight={800}>
           Blog
