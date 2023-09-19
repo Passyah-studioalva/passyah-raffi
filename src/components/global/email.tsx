@@ -33,26 +33,7 @@ const Email: React.FC = () => {
   )}`;
 
   const handleSend = () => {
-    if (!name) {
-      setErrorMessage(true);
-    }
-
-    if (!email) {
-      setErrorName(true);
-    }
-
-    if (!message) {
-      setErrorEmail(true);
-    }
-
-    if (name && email && message) {
-      setErrorName(false);
-      setErrorEmail(false);
-      setErrorMessage(false);
-      window.open(sendEmail);
-    }
-
-    // window.open(sendEmail);
+    window.open(sendEmail);
   };
 
   return (
@@ -78,12 +59,12 @@ const Email: React.FC = () => {
             py={7}
             value={name}
             border={"1px"}
-            borderColor={errorName ? "red.500" : "gray.200"}
+            borderColor={"gray.200"}
             onChange={(e) => setName(e.target.value)}
           />
-          {errorName && (
+          {/* {errorName && (
             <FormHelperText color={"red.500"}>Name is required.</FormHelperText>
-          )}
+          )} */}
         </GridItem>
 
         <GridItem className="email">
@@ -94,15 +75,17 @@ const Email: React.FC = () => {
             placeholder="input email"
             fontSize={20}
             py={7}
+            border={"1px"}
+            borderColor={"gray.200"}
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {errorEmail && (
+          {/* {errorEmail && (
             <FormHelperText color={"red.500"}>
               Email is required.
             </FormHelperText>
-          )}
+          )} */}
         </GridItem>
 
         <GridItem className="message">
@@ -113,20 +96,24 @@ const Email: React.FC = () => {
             resize={"none"}
             height={"190px"}
             fontSize={20}
+            border={"1px"}
+            borderColor={"gray.200"}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          {errorMessage && (
+          {/* {errorMessage && (
             <FormHelperText color={"red.500"}>
               Message is required.
             </FormHelperText>
-          )}
+          )} */}
         </GridItem>
       </FormControl>
 
       <Flex justifyContent={"end"} p={1} mt={5}>
         <Button
+          isDisabled={!name || !email || !message}
           colorScheme="teal"
+          disabled
           type="submit"
           rounded={"md"}
           fontSize={25}
