@@ -220,7 +220,7 @@ h4:after {
   text-align: left;
 }
 .style-markdown a {
-  color: #6B4EFF;
+  color: #6b4eff;
   font-weight: 700;
 }
 .style-markdown p {
@@ -277,5 +277,34 @@ h4:after {
   }
   .style-markdown p {
     font-size: 12px;
+  }
+}
+
+.container {
+  display: grid;
+  gap: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "top-left top-right"
+      "bottom bottom";
+  }
+
+  .name {
+    grid-area: top-left;
+  }
+
+  .email {
+    grid-area: top-right;
+  }
+
+  .message {
+    grid-area: bottom;
   }
 }
