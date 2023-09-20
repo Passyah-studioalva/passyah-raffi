@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { text } from "stream/consumers";
 
 const Email: React.FC = () => {
   const form = useRef(null);
@@ -133,7 +132,7 @@ const Email: React.FC = () => {
               border={"1px"}
               borderColor={"gray.200"}
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              value={email}
+              value={email.toLowerCase()}
               onChange={(e) => setEmail(e.target.value)}
             />
             {/* {errorEmail && (
