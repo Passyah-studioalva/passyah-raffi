@@ -20,7 +20,7 @@ const Email: React.FC = () => {
   const [name, setName] = useState(``);
   const [email, setEmail] = useState(``);
   const [message, setMessage] = useState(``);
-  const [textAlert, setTextAlert] = useState(true);
+  const [textAlert, setTextAlert] = useState(false);
 
   const sendGmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
