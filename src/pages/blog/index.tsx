@@ -6,6 +6,7 @@ import {
   Flex,
   Heading,
   SimpleGrid,
+  Grid,
 } from "@chakra-ui/react";
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
@@ -23,15 +24,22 @@ const BlogPage: React.FC = ({ blogs }: any) => {
       mb={20}
       mt={["100px", "100px", "100px", "140px"]}
     >
-      <Box mb={20}>
+      <Grid gap={[2, 2, 2, 5]} mb={20}>
         <Text as={"p"} fontSize={[20, 20, 20, 25]} fontWeight={800}>
           Blog
         </Text>
-        <Text as={"h1"} fontSize={[50, 50, 50, 80]} fontWeight={300}>
+        <Text
+          as={"h1"}
+          className="heading-blog"
+          letterSpacing={-1}
+          lineHeight={1.1}
+          fontSize={[50, 50, 50, 80]}
+          fontWeight={300}
+        >
           My daily notes on the learning process and the problems I often
           encounter
         </Text>
-      </Box>
+      </Grid>
       <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
         {blogs?.map((item: any, idx: number) => {
           return (
