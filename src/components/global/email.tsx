@@ -20,6 +20,7 @@ const Email: React.FC = () => {
   const [name, setName] = useState(``);
   const [email, setEmail] = useState(``);
   const [message, setMessage] = useState(``);
+  const [textAlert, setTextAlert] = useState(true);
 
   const sendGmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,13 +39,15 @@ const Email: React.FC = () => {
         )
         .then(
           (result) => {
-            console.log("success", result.text);
-            alert(result.text);
+            // console.log("success", result.text);
+            // alert(result.text); /* OK */
+            setTextAlert(true);
+            return result;
           },
           (error) => {
-            console.log("error", error.text);
-
-            alert(error.text);
+            // console.log("error", error.text);
+            // alert(error.text);
+            return error;
           }
         );
     }
@@ -59,17 +62,28 @@ const Email: React.FC = () => {
   //   window.open(sendEmail);
   // };
 
+  setTimeout(() => {
+    if (textAlert) {
+      setName(``);
+      setEmail(``);
+      setMessage(``);
+    }
+
+    setTextAlert(false);
+  }, 5000);
+
   return (
     <Container
       maxW={"container.xl"}
       pt={10}
       position={"relative"}
       color={"gray.600"}
-      className="dangerouslySetInnerHTML"
     >
-      <Text as={"h2"} fontSize={50} px={1} mb={10}>
-        Send me an email
-      </Text>
+      <Box className="dangerouslySetInnerHTML">
+        <Text as={"h2"} fontSize={50} px={1} mb={10}>
+          Send me an email
+        </Text>
+      </Box>
 
       <form ref={form} onSubmit={sendGmail}>
         <FormControl
@@ -78,7 +92,7 @@ const Email: React.FC = () => {
           isRequired
           p={1}
           pb={1}
-          className="container"
+          className="container dangerouslySetInnerHTML"
         >
           <Box className="name">
             <FormLabel as={"p"} htmlFor="to_name">
@@ -151,7 +165,7 @@ const Email: React.FC = () => {
           )} */}
           </Box>
         </FormControl>
-        <Flex justifyContent={"end"} p={1} mt={5}>
+        <Flex position={"relative"} justifyContent={"end"} p={1} mt={5}>
           <Button
             isDisabled={!name || !email || !message}
             colorScheme="teal"
@@ -159,12 +173,25 @@ const Email: React.FC = () => {
             type="submit"
             rounded={"md"}
             fontSize={[20, 20, 20, 25]}
-            p={[4,4,4,6]}
+            p={[4, 4, 4, 6]}
             // onClick={() => sendGmail}
           >
             Send email
           </Button>
         </Flex>
+        <Text
+          as={"p"}
+          display={textAlert ? "flex" : "none"}
+          mt={5}
+          p={5}
+          justifyContent={"center"}
+          alignItems={"center"}
+          bgColor={"green.100"}
+          fontSize={[18, 18, 18, 20]}
+          color={"green.500"}
+        >
+          Thank you for contacting me 🙌
+        </Text>
       </form>
     </Container>
   );
