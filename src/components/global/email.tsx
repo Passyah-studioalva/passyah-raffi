@@ -11,19 +11,21 @@ import {
 } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { text } from "stream/consumers";
 
 const Email: React.FC = () => {
   const form = useRef(null);
   // const lineBreak = "%0D%0A";
   // const urlMail = "passyah11@gmail.com";
 
-  const [name, setName] = useState(``);
-  const [email, setEmail] = useState(``);
-  const [message, setMessage] = useState(``);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [textAlert, setTextAlert] = useState(false);
 
   const sendGmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setTextAlert(true);
     if (
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID &&
       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID &&
@@ -47,10 +49,20 @@ const Email: React.FC = () => {
           (error) => {
             // console.log("error", error.text);
             // alert(error.text);
+            setTextAlert(false);
             return error;
           }
         );
     }
+    setTimeout(function () {
+      setName(``);
+      setEmail(``);
+      setMessage(``);
+
+      setTextAlert(false);
+
+      return setTextAlert;
+    }, 5000);
   };
 
   // const sendEmail = `mailto:${urlMail}?subject=Hello, My name ${name} ${email}&body=${message.replaceAll(
@@ -61,16 +73,6 @@ const Email: React.FC = () => {
   // const handleSend = () => {
   //   window.open(sendEmail);
   // };
-
-  setTimeout(() => {
-    if (textAlert) {
-      setName(``);
-      setEmail(``);
-      setMessage(``);
-    }
-
-    setTextAlert(false);
-  }, 5000);
 
   return (
     <Container
@@ -167,7 +169,7 @@ const Email: React.FC = () => {
         </FormControl>
         <Flex position={"relative"} justifyContent={"end"} p={1} mt={5}>
           <Button
-            isDisabled={!name || !email || !message}
+            isDisabled={!name || !email || !message || textAlert}
             colorScheme="teal"
             disabled
             type="submit"
