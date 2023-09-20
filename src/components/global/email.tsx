@@ -1,40 +1,63 @@
 import {
   Container,
   Flex,
-  Grid,
   FormControl,
   FormLabel,
   Input,
   Button,
-  GridItem,
   Textarea,
   Text,
   Box,
-  FormHelperText,
-  FormErrorMessage,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { Form, Field, useField, useForm } from "react-final-form";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Email: React.FC = () => {
-  const lineBreak = "%0D%0A";
-  const urlMail = "passyah11@gmail.com";
+  const form = useRef(null);
+  // const lineBreak = "%0D%0A";
+  // const urlMail = "passyah11@gmail.com";
 
   const [name, setName] = useState(``);
   const [email, setEmail] = useState(``);
   const [message, setMessage] = useState(``);
-  const [errorName, setErrorName] = useState(false);
-  const [errorEmail, setErrorEmail] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
 
-  const sendEmail = `mailto:${urlMail}?subject=Hello, My name ${name} ${email}&body=${message.replaceAll(
-    "\n",
-    lineBreak
-  )}`;
+  const sendGmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID &&
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID &&
+      process.env.NEXT_PUBLIC_EMAILJS_USER_ID &&
+      form.current
+    ) {
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          form.current,
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        )
+        .then(
+          (result) => {
+            console.log("success", result.text);
+            alert(result.text);
+          },
+          (error) => {
+            console.log("error", error.text);
 
-  const handleSend = () => {
-    window.open(sendEmail);
+            alert(error.text);
+          }
+        );
+    }
   };
+
+  // const sendEmail = `mailto:${urlMail}?subject=Hello, My name ${name} ${email}&body=${message.replaceAll(
+  //   "\n",
+  //   lineBreak
+  // )}`;
+
+  // const handleSend = () => {
+  //   window.open(sendEmail);
+  // };
 
   return (
     <Container
@@ -48,81 +71,101 @@ const Email: React.FC = () => {
         Send me an email
       </Text>
 
-      <FormControl isRequired p={1} pb={1} className="container">
-        <GridItem className="name">
-          <FormLabel as={"p"}>Name</FormLabel>
-          <Input
-            type="text"
-            autoComplete={"off"}
-            placeholder="input name"
-            fontSize={20}
-            py={7}
-            value={name}
-            border={"1px"}
-            borderColor={"gray.200"}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {/* {errorName && (
+      <form ref={form} onSubmit={sendGmail}>
+        <FormControl
+          ref={form}
+          onSubmit={() => sendGmail}
+          isRequired
+          p={1}
+          pb={1}
+          className="container"
+        >
+          <Box className="name">
+            <FormLabel as={"p"} htmlFor="to_name">
+              Name
+            </FormLabel>
+            <Input
+              type="to_name"
+              id="to_name"
+              name="to_name"
+              autoComplete={"off"}
+              placeholder="input name"
+              fontSize={20}
+              py={7}
+              value={name}
+              border={"1px"}
+              borderColor={"gray.200"}
+              onChange={(e) => setName(e.target.value)}
+            />
+            {/* {errorName && (
             <FormHelperText color={"red.500"}>Name is required.</FormHelperText>
           )} */}
-        </GridItem>
+          </Box>
 
-        <GridItem className="email">
-          <FormLabel as={"p"}>Email</FormLabel>
-          <Input
-            type="email"
-            autoComplete={"off"}
-            placeholder="input email"
-            fontSize={20}
-            py={7}
-            border={"1px"}
-            borderColor={"gray.200"}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {/* {errorEmail && (
+          <Box className="email">
+            <FormLabel as={"p"} htmlFor="from_name">
+              Email
+            </FormLabel>
+            <Input
+              type="from_name"
+              id="from_name"
+              name="from_name"
+              autoComplete={"off"}
+              placeholder="input email"
+              fontSize={20}
+              py={7}
+              border={"1px"}
+              borderColor={"gray.200"}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {/* {errorEmail && (
             <FormHelperText color={"red.500"}>
               Email is required.
             </FormHelperText>
           )} */}
-        </GridItem>
+          </Box>
 
-        <GridItem className="message">
-          <FormLabel as={"p"}>Message</FormLabel>
-          <Textarea
-            placeholder="input message"
-            autoComplete={"off"}
-            resize={"none"}
-            height={"190px"}
-            fontSize={20}
-            border={"1px"}
-            borderColor={"gray.200"}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          {/* {errorMessage && (
+          <Box className="message">
+            <FormLabel as={"p"} htmlFor="message">
+              Message
+            </FormLabel>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder="input message"
+              autoComplete={"off"}
+              resize={"none"}
+              height={"190px"}
+              fontSize={20}
+              border={"1px"}
+              borderColor={"gray.200"}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            {/* {errorMessage && (
             <FormHelperText color={"red.500"}>
               Message is required.
             </FormHelperText>
           )} */}
-        </GridItem>
-      </FormControl>
-
-      <Flex justifyContent={"end"} p={1} mt={5}>
-        <Button
-          isDisabled={!name || !email || !message}
-          colorScheme="teal"
-          disabled
-          type="submit"
-          rounded={"md"}
-          fontSize={25}
-          p={6}
-          onClick={() => handleSend()}
-        >
-          Send email
-        </Button>
-      </Flex>
+          </Box>
+          <Flex justifyContent={"end"} p={1} mt={5}>
+            <Button
+              isDisabled={!name || !email || !message}
+              colorScheme="teal"
+              disabled
+              type="submit"
+              rounded={"md"}
+              fontSize={25}
+              p={6}
+              // onClick={() => sendGmail}
+            >
+              Send email
+            </Button>
+          </Flex>
+        </FormControl>
+      </form>
     </Container>
   );
 };
