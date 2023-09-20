@@ -150,21 +150,21 @@ const Email: React.FC = () => {
             </FormHelperText>
           )} */}
           </Box>
-          <Flex justifyContent={"end"} p={1} mt={5}>
-            <Button
-              isDisabled={!name || !email || !message}
-              colorScheme="teal"
-              disabled
-              type="submit"
-              rounded={"md"}
-              fontSize={25}
-              p={6}
-              // onClick={() => sendGmail}
-            >
-              Send email
-            </Button>
-          </Flex>
         </FormControl>
+        <Flex justifyContent={"end"} p={1} mt={5}>
+          <Button
+            isDisabled={!name || !email || !message}
+            colorScheme="teal"
+            disabled
+            type="submit"
+            rounded={"md"}
+            fontSize={[20, 20, 20, 25]}
+            p={[4,4,4,6]}
+            // onClick={() => sendGmail}
+          >
+            Send email
+          </Button>
+        </Flex>
       </form>
     </Container>
   );
