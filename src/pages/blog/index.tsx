@@ -73,7 +73,7 @@ const BlogPage: React.FC = ({ blogs }: any) => {
                   letterSpacing="-.3px"
                   className="line-clamp-2"
                 >
-                  {item.title.replace(/[0-9]/g, "")}
+                  {item.title}
                 </Heading>
               </Flex>
               <Text fontSize={14} color="ink.900" className="line-clamp-4">

@@ -52,7 +52,7 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
           gap={2}
         >
           <Text fontSize={[20, 32]} fontWeight={"bold"}>
-            {data[0]?.title.replace(/[0-9]/g, "")}
+            {data[0]?.title}
           </Text>
         </Box>
         {data[0]?.body.map((item: any, idx: number) => {
