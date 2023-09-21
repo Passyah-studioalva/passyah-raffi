@@ -10,11 +10,15 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
   const data = blogs.filter(
     (item: any) => item.slug.current === router.query.slug
   );
-  // const desc = data[0]?.mainImage.map((item: any) => item.children[0].text);
+  // const desc = data[0]?.body.map((item: any) => item.children[0].text);
   const builder = imageUrlBuilder(client);
   const urlFor = (source: SanityImageSource) => {
     return builder.image(source);
   };
+
+  const orderData = blogs.sort(
+    (a: { number: number }, b: { number: number }) => b.number - a.number
+  );
 
   return (
     <Container
@@ -48,7 +52,7 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
           gap={2}
         >
           <Text fontSize={[20, 32]} fontWeight={"bold"}>
-            {data[0]?.title}
+            {data[0]?.title.replace(/[0-9]/g, "")}
           </Text>
         </Box>
         {data[0]?.body.map((item: any, idx: number) => {

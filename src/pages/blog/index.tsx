@@ -14,13 +14,14 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Link from "next/link";
 
 const BlogPage: React.FC = ({ blogs }: any) => {
-
   const builder = imageUrlBuilder(client);
   const urlFor = (source: SanityImageSource) => {
     return builder.image(source);
   };
 
-  // const orderData = blogs.sort((a, b) => b.order - a.order);
+  const orderData = blogs.sort(
+    (a: { number: number }, b: { number: number }) => b.number - a.number
+  );
 
   return (
     <Container
@@ -46,7 +47,7 @@ const BlogPage: React.FC = ({ blogs }: any) => {
         </Text>
       </Grid>
       <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
-        {blogs?.map((item: any, idx: number) => {
+        {orderData?.map((item: any, idx: number) => {
           return (
             <Link key={idx} href={`/blog/${item.slug.current}`}>
               <Box mb={4}>
@@ -72,7 +73,7 @@ const BlogPage: React.FC = ({ blogs }: any) => {
                   letterSpacing="-.3px"
                   className="line-clamp-2"
                 >
-                  {item.title}
+                  {item.title.replace(/[0-9]/g, "")}
                 </Heading>
               </Flex>
               <Text fontSize={14} color="ink.900" className="line-clamp-4">
