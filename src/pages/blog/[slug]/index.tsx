@@ -1,31 +1,29 @@
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
-import {
-  Box,
-  Container,
-  Text,
-  Image,
-  Flex,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Box, Container, Text, Image, Flex } from "@chakra-ui/react";
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import Link from "next/link";
 
 const BlogDetailPage: React.FC = ({ blogs }: any) => {
+  console.log(blogs);
+
   const router = useRouter();
   const data = blogs.filter(
     (item: any) => item.slug.current === router.query.slug
   );
-  const desc = data[0]?.content.map((item: any) => item.children[0].text);
+  // const desc = data[0]?.mainImage.map((item: any) => item.children[0].text);
   const builder = imageUrlBuilder(client);
-  const urlFor = (source: any) => {
+  const urlFor = (source: SanityImageSource) => {
     return builder.image(source);
   };
+
   return (
-    <Container maxW={"container.xl"} mb={20} mt={["100px", "100px", "100px", "140px"]}>
+    <Container
+      maxW={"container.xl"}
+      mb={20}
+      mt={["100px", "100px", "100px", "140px"]}
+    >
       <Flex
         alignItems={"center"}
         justifyContent="center"
@@ -33,13 +31,13 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
         margin={"auto"}
         px={[6, 8, 8, 0]}
       >
-        {data[0]?.coverImage.asset._ref && (
+        {data[0]?.mainImage.asset._ref && (
           <Image
-            src={urlFor(data[0]?.coverImage.asset._ref)
+            src={urlFor(data[0]?.mainImage.asset._ref)
               .height(1000)
               .width(2000)
               .url()}
-            alt={data[0]?.coverImage.asset._ref}
+            alt={data[0]?.mainImage.asset._ref}
             height={["full", "full", "full", "565px"]}
           />
         )}
@@ -55,13 +53,9 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
             {data[0]?.title}
           </Text>
         </Box>
-        {data[0]?.content.map((item: any, idx: number) => {
+        {data[0]?.body.map((item: any, idx: number) => {
           return (
-            <Box
-              key={idx}
-              textAlign={"justify"}
-              className="style-markdown"
-            >
+            <Box key={idx} textAlign={"justify"} className="style-markdown">
               <ReactMarkdown>{item.children[0].text}</ReactMarkdown>
             </Box>
           );
@@ -74,15 +68,15 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
 export default BlogDetailPage;
 
 const client = createClient({
-  projectId: "ygoj9xy6",
+  projectId: "iwjwzghi",
   dataset: "production",
   /* YY - MM - DD */
-  apiVersion: "2023-07-10",
+  apiVersion: "2023-11-09",
   useCdn: true,
 });
 
 export async function getStaticProps() {
-  const blogs = await client.fetch(`*[_type == "blogs"]`);
+  const blogs = await client.fetch(`*[_type == "passyahRaffi"]`);
 
   return {
     props: {
@@ -93,7 +87,7 @@ export async function getStaticProps() {
 }
 
 export const getStaticPaths = async () => {
-  const blogs = await client.fetch(`*[_type == "blogs"]`);
+  const blogs = await client.fetch(`*[_type == "passyahRaffi"]`);
 
   return {
     paths: blogs?.map(({ slug }: any) => `/blog/${slug}`) || [],

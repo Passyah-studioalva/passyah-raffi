@@ -14,6 +14,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Link from "next/link";
 
 const BlogPage: React.FC = ({ blogs }: any) => {
+
   const builder = imageUrlBuilder(client);
   const urlFor = (source: SanityImageSource) => {
     return builder.image(source);
@@ -26,6 +27,7 @@ const BlogPage: React.FC = ({ blogs }: any) => {
       maxW={"container.xl"}
       mb={20}
       mt={["100px", "100px", "100px", "140px"]}
+      minH={"80vh"}
     >
       <Grid gap={[2, 2, 2, 5]} mb={20}>
         <Text as={"p"} fontSize={[20, 20, 20, 25]} fontWeight={800}>
@@ -48,14 +50,16 @@ const BlogPage: React.FC = ({ blogs }: any) => {
           return (
             <Link key={idx} href={`/blog/${item.slug.current}`}>
               <Box mb={4}>
-                <Image
-                  src={urlFor(item.coverImage.asset._ref)
-                    .height(1000)
-                    .width(2000)
-                    .url()}
-                  alt={item.coverImage.asset._ref}
-                  rounded={"md"}
-                />
+                {item.mainImage.asset._ref && (
+                  <Image
+                    src={urlFor(item.mainImage.asset._ref)
+                      .height(1000)
+                      .width(2000)
+                      .url()}
+                    alt={item.mainImage.asset._ref}
+                    rounded={"md"}
+                  />
+                )}
               </Box>
 
               <Flex justifyContent="space-between">
@@ -85,15 +89,15 @@ const BlogPage: React.FC = ({ blogs }: any) => {
 export default BlogPage;
 
 const client = createClient({
-  projectId: "ygoj9xy6",
+  projectId: "iwjwzghi",
   dataset: "production",
   /* YY - MM - DD */
-  apiVersion: "2023-07-10",
+  apiVersion: "2023-11-09",
   useCdn: true,
 });
 
 export async function getStaticProps() {
-  const blogs = await client.fetch(`*[_type == "blogs"]`);
+  const blogs = await client.fetch(`*[_type == "passyahRaffi"]`);
 
   return {
     props: {
