@@ -6,8 +6,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 const BlogDetailPage: React.FC = ({ blogs }: any) => {
-  console.log(blogs);
-
   const router = useRouter();
   const data = blogs.filter(
     (item: any) => item.slug.current === router.query.slug
