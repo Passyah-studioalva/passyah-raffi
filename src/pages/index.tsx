@@ -17,6 +17,7 @@ import HERO from "@assets/home.png";
 export default function HomePage() {
   const dummy = [
     {
+      order: 1,
       title: "Travel Singapore",
       desc: "ACETOURS Singapore - Discover Tours, Attractions, Hotels and more - booking.",
       color: "#2B569A",
@@ -27,6 +28,7 @@ export default function HomePage() {
       img: ACETOURS,
     },
     {
+      order: 2,
       title: "Nucleus UI",
       desc: "The all-in-one UI kit and Design System for Figma.",
       color: "#6B4EFF",
@@ -37,6 +39,7 @@ export default function HomePage() {
       img: NUCLEUSUI,
     },
     {
+      order: 3,
       title: "Nucleus Free Icons",
       desc: "Minimal and beautiful open source icons by Nucleus.",
       color: "#6B4EFF",
@@ -47,6 +50,7 @@ export default function HomePage() {
       img: NUCLEUSICONS,
     },
     {
+      order: 4,
       title: "BizTips",
       desc: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
       color: "#772583",
@@ -57,6 +61,7 @@ export default function HomePage() {
       img: BIZTIPS,
     },
     {
+      order: 5,
       title: "Racun Shopee",
       desc: "Mobile app untuk memudahkan seorang affiliator membuat content.",
       color: "#f53d2d",
@@ -66,17 +71,20 @@ export default function HomePage() {
       url: "https://racun-shopee.vercel.app/",
       img: RACUNSHOPEE,
     },
-    {
-      title: "coming soon",
-      desc: "",
-      color: "transparent",
-      /* Domain */
-      // url: "?",
-      /* Vercel */
-      url: "/#",
-      img: COMMINGSOON,
-    },
+    // {
+    //   order: 6,
+    //   title: "coming soon",
+    //   desc: "",
+    //   color: "transparent",
+    //   /* Domain */
+    //   // url: "?",
+    //   /* Vercel */
+    //   url: "/#",
+    //   img: COMMINGSOON,
+    // },
   ];
+
+  const orderData = dummy.sort((a, b) => b.order - a.order);
 
   return (
     <Box mt={"70px"}>
@@ -93,54 +101,55 @@ export default function HomePage() {
           SOME OF MY LATEST WORK
         </Text>
         <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
-          {dummy.map((item, idx) => {
+          {orderData.map((item, idx) => {
             return (
-              <Link key={idx} href={item.url} passHref legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Box
-                    bg={item.color}
-                    color={"white"}
-                    minH="300px"
-                    maxH="300px"
-                    rounded={"md"}
-                    overflow={"hidden"}
-                    className={
-                      item.title.toLocaleLowerCase() === "coming soon"
-                        ? ""
-                        : "animate-hover"
-                    }
-                    _hover={
-                      item.title.toLocaleLowerCase() === "coming soon"
-                        ? { cursor: "not-allowed" }
-                        : { cursor: "pointer" }
-                    }
-                  >
-                    <Image
-                      src={item.img.src}
-                      alt={item.title}
-                      w="full"
-                      h={
-                        item.title.toLocaleLowerCase() === "coming soon"
-                          ? "300px"
-                          : "200px"
-                      }
-                      objectFit={
-                        item.title.toLocaleLowerCase() === "nucleus free icons"
-                          ? "fill"
-                          : "cover"
-                      }
-                      objectPosition={"center"}
-                    />
+              // <Link key={idx} href={item.url} passHref legacyBehavior>
+              // <a target="_blank" rel="noopener noreferrer">
+              <Box
+                key={item.order}
+                bg={item.color}
+                color={"white"}
+                minH="300px"
+                maxH="300px"
+                rounded={"md"}
+                overflow={"hidden"}
+                className={
+                  item.title.toLocaleLowerCase() === "coming soon"
+                    ? ""
+                    : "animate-hover"
+                }
+                _hover={
+                  item.title.toLocaleLowerCase() === "coming soon"
+                    ? { cursor: "not-allowed" }
+                    : { cursor: "pointer" }
+                }
+              >
+                <Image
+                  src={item.img.src}
+                  alt={item.title}
+                  w="full"
+                  h={
+                    item.title.toLocaleLowerCase() === "coming soon"
+                      ? "300px"
+                      : "200px"
+                  }
+                  objectFit={
+                    item.title.toLocaleLowerCase() === "nucleus free icons"
+                      ? "fill"
+                      : "cover"
+                  }
+                  objectPosition={"center"}
+                />
 
-                    <Box py={5} p={2}>
-                      <Text fontSize={20} fontWeight={600}>
-                        {item.title}
-                      </Text>
-                      <Text>{item.desc}</Text>
-                    </Box>
-                  </Box>
-                </a>
-              </Link>
+                <Box py={5} p={2}>
+                  <Text fontSize={20} fontWeight={600}>
+                    {item.title}
+                  </Text>
+                  <Text>{item.desc}</Text>
+                </Box>
+              </Box>
+              // </a>
+              // </Link>
             );
           })}
         </SimpleGrid>

@@ -18,6 +18,9 @@ const BlogPage: React.FC = ({ blogs }: any) => {
   const urlFor = (source: SanityImageSource) => {
     return builder.image(source);
   };
+
+  // const orderData = blogs.sort((a, b) => b.order - a.order);
+
   return (
     <Container
       maxW={"container.xl"}
