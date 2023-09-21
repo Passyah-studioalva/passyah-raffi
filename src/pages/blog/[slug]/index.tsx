@@ -17,7 +17,7 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
   };
 
   const orderData = blogs.sort(
-    (a: { number: number }, b: { number: number }) => b.number - a.number
+    (a: { order: number }, b: { order: number }) => b.order - a.order
   );
 
   return (
