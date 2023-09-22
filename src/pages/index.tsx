@@ -85,40 +85,49 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
                 <ListItem>Typescript</ListItem>
               </UnorderedList>
             </List>
+
+            <Flex
+              gap={3}
+              my={3}
+              justifyContent={["start", "start", "start", "end"]}
+              alignItems={"center"}
+            >
+              {data?.urlDomain && (
+                <Link href={data?.urlDomain}>
+                  <Button
+                    colorScheme={"transparent"}
+                    borderColor={"black"}
+                    variant="outline"
+                    className="animate-hover"
+                  >
+                    Preview to domain
+                  </Button>
+                </Link>
+              )}
+
+              {data?.urlDomain && data?.urlVercel ? <Text>or</Text> : null}
+
+              {data?.urlVercel && (
+                <Link href={data?.urlVercel}>
+                  {/* <Link href={data?.url} passHref legacyBehavior> */}
+                  {/* <a target="_blank" rel="noopener noreferrer"> */}
+                  <Button
+                    variant="solid"
+                    className="animate-button-solid"
+                    onClick={onClose}
+                  >
+                    Preview to production
+                  </Button>
+                  {/* </a> */}
+                </Link>
+              )}
+            </Flex>
           </Grid>
         </DrawerBody>
 
-        <DrawerFooter display={"flex"} gap={3}>
-          {data?.urlDomain && (
-            <Link href={data?.urlDomain}>
-              <Button
-                colorScheme={"transparent"}
-                borderColor={"black"}
-                variant="outline"
-                className="animate-hover"
-              >
-                Preview to domain
-              </Button>
-            </Link>
-          )}
+        {/* <DrawerFooter>
 
-          {data?.urlDomain && data?.urlVercel ? <Text>or</Text> : null}
-          
-          {data?.urlVercel && (
-            <Link href={data?.urlVercel}>
-              {/* <Link href={data?.url} passHref legacyBehavior> */}
-              {/* <a target="_blank" rel="noopener noreferrer"> */}
-              <Button
-                variant="solid"
-                className="animate-button-solid"
-                onClick={onClose}
-              >
-                Preview to production
-              </Button>
-              {/* </a> */}
-            </Link>
-          )}
-        </DrawerFooter>
+        </DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   );
