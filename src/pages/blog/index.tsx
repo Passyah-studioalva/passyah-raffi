@@ -49,7 +49,11 @@ const BlogPage: React.FC = ({ blogs }: any) => {
       <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
         {orderData?.map((item: any, idx: number) => {
           return (
-            <Link key={idx} href={`/blog/${item.slug.current}`}>
+            <Link
+              key={idx}
+              href={`/blog/${item.slug.current}`}
+              className="animate-hover"
+            >
               <Box mb={4}>
                 {item.mainImage.asset._ref && (
                   <Image

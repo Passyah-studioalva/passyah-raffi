@@ -1,20 +1,132 @@
-import { Box, Container, Text, SimpleGrid, Image } from "@chakra-ui/react";
+import * as React from "react";
+import {
+  Box,
+  Container,
+  Text,
+  SimpleGrid,
+  Image,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
+  Flex,
+  Grid,
+  UnorderedList,
+  ListItem,
+  List,
+} from "@chakra-ui/react";
 import Link from "next/link";
-// import Image from "next/image";
-// import ACETOURS from "@assets/img-project/acetours.png";
 import ACETOURS from "@assets/img-project/acetours-img.png";
-// import NUCLEUSUI from "@assets/img-project/nucleus-ui.png";
 import NUCLEUSUI from "@assets/img-project/nucleus-ui-img.png";
-// import NUCLEUSICONS from "@assets/img-project/nucleus-icons.png";
 import NUCLEUSICONS from "@assets/img-project/nucleus-icons-img.png";
-// import BIZTIPS from "@assets/img-project/biztips.png";
 import BIZTIPS from "@assets/img-project/biztips-img.png";
 import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
-import COMMINGSOON from "@assets/img-project/coming-soon.png";
 import Hero from "@src/components/global/hero";
 import HERO from "@assets/home.png";
 
-export default function HomePage() {
+const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
+  return (
+    <Drawer
+      isOpen={isOpen}
+      placement="right"
+      onClose={onClose}
+      finalFocusRef={btnRef}
+      size={"md"}
+    >
+      <DrawerOverlay />
+      <DrawerContent bgColor={"gray.300"}>
+        <DrawerCloseButton />
+        <DrawerHeader>{data?.title}</DrawerHeader>
+
+        <DrawerBody>
+          <Image
+            src={data?.img?.src}
+            alt={data?.title}
+            w="full"
+            h={"300px"}
+            objectPosition={"center"}
+          />
+
+          <Box py={5}>
+            <Text fontSize={20} fontWeight={600}>
+              {data?.title}
+            </Text>
+            <Text>{data?.desc}</Text>
+          </Box>
+          <Grid gap={5}>
+            <List>
+              <Text>Manfaat / tujuan website ini dibangun :</Text>
+              <UnorderedList gap={5}>
+                <ListItem>
+                  aplikasi ini digunakan untuk memudahakan developer dalam
+                  membangun aplikasi menggunakan free icon dengan format svg
+                  yang dapat dicustom didalam website ini
+                </ListItem>
+              </UnorderedList>
+            </List>
+
+            <List>
+              <Text>Framework yang digunakan :</Text>
+              <UnorderedList gap={5}>
+                <ListItem>VueJs v2</ListItem>
+                <ListItem>NuxtJs v2</ListItem>
+              </UnorderedList>
+            </List>
+
+            <List>
+              <Text>Component Library yang digunakan :</Text>
+              <UnorderedList gap={5}>
+                <ListItem>TailwindCss</ListItem>
+                <ListItem>Typescript</ListItem>
+              </UnorderedList>
+            </List>
+          </Grid>
+        </DrawerBody>
+
+        <DrawerFooter display={"flex"} gap={3}>
+          {data?.urlDomain && (
+            <Link href={data?.urlDomain}>
+              <Button
+                colorScheme={"transparent"}
+                borderColor={"black"}
+                variant="outline"
+                className="animate-hover"
+              >
+                Preview to domain
+              </Button>
+            </Link>
+          )}
+
+          {data?.urlDomain && data?.urlVercel ? <Text>or</Text> : null}
+          
+          {data?.urlVercel && (
+            <Link href={data?.urlVercel}>
+              {/* <Link href={data?.url} passHref legacyBehavior> */}
+              {/* <a target="_blank" rel="noopener noreferrer"> */}
+              <Button
+                variant="solid"
+                className="animate-button-solid"
+                onClick={onClose}
+              >
+                Preview to production
+              </Button>
+              {/* </a> */}
+            </Link>
+          )}
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
+const HomePage = () => {
+  const btnRef = React.useRef<HTMLInputElement>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const dummy = [
     {
       order: 1,
@@ -22,9 +134,9 @@ export default function HomePage() {
       desc: "ACETOURS Singapore - Discover Tours, Attractions, Hotels and more - booking.",
       color: "#2B569A",
       /* Domain */
-      url: "http://pkg.ezbooking.co",
+      urlDomain: "http://pkg.ezbooking.co",
       /* Vercel */
-      // url: 'https://project-travel-orpin.vercel.app'
+      urlVercel: "https://project-travel-orpin.vercel.app",
       img: ACETOURS,
     },
     {
@@ -33,9 +145,9 @@ export default function HomePage() {
       desc: "The all-in-one UI kit and Design System for Figma.",
       color: "#6B4EFF",
       /* Domain */
-      url: "https://www.nucleus-ui.com",
+      urlDomain: "https://www.nucleus-ui.com",
       /* Vercel */
-      // url: "https://figmaterial-thebuddyman.vercel.app",
+      urlVercel: "https://figmaterial-thebuddyman.vercel.app",
       img: NUCLEUSUI,
     },
     {
@@ -44,9 +156,9 @@ export default function HomePage() {
       desc: "Minimal and beautiful open source icons by Nucleus.",
       color: "#6B4EFF",
       /* Domain */
-      url: "https://icon.nucleus-ui.com",
+      urlDomain: "https://icon.nucleus-ui.com",
       /* Vercel */
-      // url: "https://project-nucleus-icon.vercel.app",
+      urlVercel: "https://project-nucleus-icon.vercel.app",
       img: NUCLEUSICONS,
     },
     {
@@ -55,9 +167,9 @@ export default function HomePage() {
       desc: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
       color: "#772583",
       /* Domain */
-      url: "https://biztips.gobiz.co.id",
+      urlDomain: "https://biztips.gobiz.co.id",
       /* Vercel */
-      // url: "https://gobiz-frontend.vercel.app/biztips",
+      urlVercel: "https://gobiz-frontend.vercel.app/biztips",
       img: BIZTIPS,
     },
     {
@@ -66,9 +178,9 @@ export default function HomePage() {
       desc: "Mobile app untuk memudahkan seorang affiliator membuat content.",
       color: "#f53d2d",
       /* Domain */
-      // url: "?",
+      urlDomain: "",
       /* Vercel */
-      url: "https://racun-shopee.vercel.app/",
+      urlVercel: "https://racun-shopee.vercel.app/",
       img: RACUNSHOPEE,
     },
     // {
@@ -83,14 +195,19 @@ export default function HomePage() {
     //   img: COMMINGSOON,
     // },
   ];
-
+  const [data, setData] = React.useState({});
   const orderData = dummy.sort((a, b) => b.order - a.order);
+
+  const handleData = (e: any) => {
+    setData(e);
+  };
 
   return (
     <Box mt={"70px"}>
       <Hero url={HERO.src} alt="hero" />
       <Container maxW={"container.xl"} mb={20}>
         <Text
+          ref={btnRef}
           as="h4"
           textAlign={"center"}
           my={10}
@@ -106,6 +223,8 @@ export default function HomePage() {
               // <Link key={idx} href={item.url} passHref legacyBehavior>
               // <a target="_blank" rel="noopener noreferrer">
               <Box
+                ref={btnRef}
+                onClick={onOpen}
                 key={item.order}
                 bg={item.color}
                 color={"white"}
@@ -125,6 +244,9 @@ export default function HomePage() {
                 }
               >
                 <Image
+                  onClick={() => {
+                    handleData(item);
+                  }}
                   src={item.img.src}
                   alt={item.title}
                   w="full"
@@ -152,8 +274,18 @@ export default function HomePage() {
               // </Link>
             );
           })}
+
+          <ComponentDrawer
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            btnRef={btnRef}
+            data={data}
+          />
         </SimpleGrid>
       </Container>
     </Box>
   );
-}
+};
+
+export default HomePage;
