@@ -7,7 +7,7 @@ import {
   Image,
   Drawer,
   DrawerBody,
-  DrawerFooter,
+  // DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -49,42 +49,46 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
             alt={data?.title}
             w="full"
             h={"300px"}
+            objectFit={"cover"}
             objectPosition={"center"}
           />
 
           <Box py={5}>
             <Text fontSize={20} fontWeight={600}>
-              {data?.title}
+              {data?.subtitle}
             </Text>
-            <Text>{data?.desc}</Text>
+            <Text></Text>
           </Box>
           <Grid gap={5}>
-            <List>
-              <Text>Manfaat / tujuan website ini dibangun :</Text>
-              <UnorderedList gap={5}>
-                <ListItem>
-                  aplikasi ini digunakan untuk memudahakan developer dalam
-                  membangun aplikasi menggunakan free icon dengan format svg
-                  yang dapat dicustom didalam website ini
-                </ListItem>
-              </UnorderedList>
-            </List>
-
-            <List>
-              <Text>Framework yang digunakan :</Text>
-              <UnorderedList gap={5}>
-                <ListItem>VueJs v2</ListItem>
-                <ListItem>NuxtJs v2</ListItem>
-              </UnorderedList>
-            </List>
-
-            <List>
-              <Text>Component Library yang digunakan :</Text>
-              <UnorderedList gap={5}>
-                <ListItem>TailwindCss</ListItem>
-                <ListItem>Typescript</ListItem>
-              </UnorderedList>
-            </List>
+            {data?.desc?.map((item: any, idx: number) => {
+              return (
+                <List key={idx}>
+                  <Text>{item.subtitle}</Text>
+                  <UnorderedList>
+                    {item.listDesc.map((list: any, id: number) => {
+                      return <ListItem key={id}>{list}</ListItem>;
+                    })}
+                  </UnorderedList>
+                  <Flex gap={3} ml={4}>
+                    {item.hastag &&
+                      item.hastag.map((tag: any, id: number) => {
+                        return (
+                          <ListItem
+                            key={id}
+                            bg={"gray.100"}
+                            px={1}
+                            rounded={"full"}
+                            fontSize={14}
+                            letterSpacing={0.5}
+                          >
+                            {tag}
+                          </ListItem>
+                        );
+                      })}
+                  </Flex>
+                </List>
+              );
+            })}
 
             <Flex
               gap={3}
@@ -125,9 +129,7 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
           </Grid>
         </DrawerBody>
 
-        {/* <DrawerFooter>
-
-        </DrawerFooter> */}
+        {/* <DrawerFooter></DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   );
@@ -140,72 +142,149 @@ const HomePage = () => {
     {
       order: 1,
       title: "Travel Singapore",
-      desc: "ACETOURS Singapore - Discover Tours, Attractions, Hotels and more - booking.",
+      subtitle:
+        "ACETOURS Singapore - Discover Tours, Attractions, Hotels and more - booking.",
       color: "#2B569A",
-      /* Domain */
       urlDomain: "http://pkg.ezbooking.co",
-      /* Vercel */
       urlVercel: "https://project-travel-orpin.vercel.app",
       img: ACETOURS,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk menghandle booking yang menawarkan paket-paket perjalanan dan destinasi yang menarik di seluruh benua, negara, dan kota.",
+          ],
+          hastag: ["#acetours", "#singapore", "#trip", "#destinations"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["VueJs", "NuxtJs"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["TailwindCss", "Typescript"],
+        },
+      ],
     },
     {
       order: 2,
       title: "Nucleus UI",
-      desc: "The all-in-one UI kit and Design System for Figma.",
+      subtitle:
+        "The all-in-one UI kit and Design System for Figma - Supercharge your design workflow, kick-start your projects faster, and level up your process. Pay once and get lifetime updates.",
       color: "#6B4EFF",
-      /* Domain */
       urlDomain: "https://www.nucleus-ui.com",
-      /* Vercel */
       urlVercel: "https://figmaterial-thebuddyman.vercel.app",
       img: NUCLEUSUI,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini bangun untuk menawarkan jasa yang berbentuk paket-paket dalam meningkatkan produktifitas dan proses yang cepat untuk solusi proyek anda",
+          ],
+          hastag: ["#nucleusui", "#nucleuslite", "nucleusuikit"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["VueJs v2", "NuxtJs v2"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["TailwindCss", "Typescript"],
+        },
+      ],
     },
     {
       order: 3,
       title: "Nucleus Free Icons",
-      desc: "Minimal and beautiful open source icons by Nucleus.",
+      subtitle: "Minimal and beautiful open source icons by Nucleus.",
       color: "#6B4EFF",
-      /* Domain */
       urlDomain: "https://icon.nucleus-ui.com",
-      /* Vercel */
       urlVercel: "https://project-nucleus-icon.vercel.app",
       img: NUCLEUSICONS,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk memudahakan developer dalam membangun aplikasi menggunakan free icon dengan format svg yang dapat dicopy, didownload, dan dicustom baik dari warna, ukuran, dan ketebalan yang diinginkan didalam website ini.",
+          ],
+          hastag: ["#freeicons", "#svg", "nucleusicon"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["VueJs", "NuxtJs"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["TailwindCss", "Typescript"],
+        },
+      ],
     },
     {
       order: 4,
       title: "BizTips",
-      desc: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
+      subtitle: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
       color: "#772583",
-      /* Domain */
       urlDomain: "https://biztips.gobiz.co.id",
-      /* Vercel */
       urlVercel: "https://gobiz-frontend.vercel.app/biztips",
       img: BIZTIPS,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk tips trik mitra penjual gofood dalam menjalankan berbagai macam usahanya dengan panduan-panduan dan rekomendasi dari pusat edukasi Mitra Usaha.",
+          ],
+          hastag: ["#biztips", "#gobiz", "#mitrausaha"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["ReactJs", "NextJs"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["Chakra UI", "Typescript"],
+        },
+        {
+          subtitle: "Data Base yg digunakan :",
+          listDesc: ["Strapi.io"],
+        },
+      ],
     },
     {
       order: 5,
       title: "Racun Shopee",
-      desc: "Mobile app untuk memudahkan seorang affiliator membuat content.",
+      subtitle:
+        "Mobile app untuk memudahkan seorang affiliator membuat content.",
       color: "#f53d2d",
-      /* Domain */
       urlDomain: "",
-      /* Vercel */
       urlVercel: "https://racun-shopee.vercel.app/",
       img: RACUNSHOPEE,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk memudahakan affiliator dalam menggenerate link dari CMS Sanity.io yang di tampilkan ke client-side, agar pembeli shopee dapat dengan mudah mentrigger link yang di tampilkan di UI",
+          ],
+          hastag: ["#affiliate", "#outfit", "#rekomendasi"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["ReactJs", "NextJs"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["Chakra UI", "Typescript"],
+        },
+        {
+          subtitle: "Data Base yg digunakan :",
+          listDesc: ["Sanity.io"],
+        },
+      ],
     },
-    // {
-    //   order: 6,
-    //   title: "coming soon",
-    //   desc: "",
-    //   color: "transparent",
-    //   /* Domain */
-    //   // url: "?",
-    //   /* Vercel */
-    //   url: "/#",
-    //   img: COMMINGSOON,
-    // },
   ];
   const [data, setData] = React.useState({});
-  const orderData = dummy.sort((a, b) => b.order - a.order);
+  const orderData = dummy.sort(
+    (a: { order: number }, b: { order: number }) => b.order - a.order
+  );
 
   const handleData = (e: any) => {
     setData(e);
@@ -227,10 +306,8 @@ const HomePage = () => {
           SOME OF MY LATEST WORK
         </Text>
         <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
-          {orderData.map((item, idx) => {
+          {orderData.map((item: any) => {
             return (
-              // <Link key={idx} href={item.url} passHref legacyBehavior>
-              // <a target="_blank" rel="noopener noreferrer">
               <Box
                 ref={btnRef}
                 onClick={onOpen}
@@ -259,11 +336,7 @@ const HomePage = () => {
                   src={item.img.src}
                   alt={item.title}
                   w="full"
-                  h={
-                    item.title.toLocaleLowerCase() === "coming soon"
-                      ? "300px"
-                      : "200px"
-                  }
+                  h={"200px"}
                   objectFit={
                     item.title.toLocaleLowerCase() === "nucleus free icons"
                       ? "fill"
@@ -272,15 +345,19 @@ const HomePage = () => {
                   objectPosition={"center"}
                 />
 
-                <Box py={5} p={2}>
+                <Box
+                  py={5}
+                  p={2}
+                  onClick={() => {
+                    handleData(item);
+                  }}
+                >
                   <Text fontSize={20} fontWeight={600}>
                     {item.title}
                   </Text>
-                  <Text>{item.desc}</Text>
+                  <Text>{item.subtitle}</Text>
                 </Box>
               </Box>
-              // </a>
-              // </Link>
             );
           })}
 
