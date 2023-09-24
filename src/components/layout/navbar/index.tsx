@@ -32,11 +32,6 @@ export default function Navbar() {
     { title: "contact", url: "/contact" },
   ];
   const listSocial = [
-    // {
-    //   title: "gmail",
-    //   image: GMAIL,
-    //   url: `mailto:passyah11@gmail.com?subject=Mail from our Website&body=Hello, Passyah Raffi`,
-    // },
     {
       title: "linkedin",
       image: LINKEDIN,
@@ -67,13 +62,14 @@ export default function Navbar() {
         alignItems={"center"}
         maxW={"container.xl"}
         zIndex={100}
-        h={"92px"}
+        h={"full"}
+        py={2}
       >
         <Link href={"/"}>
           <Center
             rounded={"full"}
-            minH={"80px"}
-            w={"80px"}
+            minH={"70px"}
+            w={"70px"}
             fontSize={40}
             className="logo animate-hover"
             bg={"white"}

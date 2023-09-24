@@ -352,10 +352,10 @@ const HomePage = () => {
                     handleData(item);
                   }}
                 >
-                  <Text fontSize={20} fontWeight={600}>
+                  <Text fontSize={20} fontWeight={600} className="line-clamp-1">
                     {item.title}
                   </Text>
-                  <Text>{item.subtitle}</Text>
+                  <Text className="line-clamp-2">{item.subtitle}</Text>
                 </Box>
               </Box>
             );

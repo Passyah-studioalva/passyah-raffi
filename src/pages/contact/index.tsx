@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Container,Box } from "@chakra-ui/react";
+import { Container, Box } from "@chakra-ui/react";
 import Hero from "@src/components/global/hero";
 import Email from "@src/components/global/email";
 import HERO from "@assets/contact.JPG";
@@ -50,8 +50,8 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <Box mt={'70px'}>
-      <Container maxW={"full"} shadow={"md"} pb={20}>
+    <Box mt={"70px"}>
+      <Container maxW={"full"} shadow={"md"} pb={[10, 10, 10, 20]}>
         <Container maxW={"container.xl"}>
           {/* HERO */}
           <Hero
@@ -63,7 +63,13 @@ const ContactPage: React.FC = () => {
           />
         </Container>
       </Container>
-      <Container maxW={"full"} bg={"#F5F5F5"} mt={1} pb={20}>
+      <Container
+        maxW={"full"}
+        bg={"#F5F5F5"}
+        mt={1}
+        pt={10}
+        pb={[10, 10, 10, 20]}
+      >
         <Email />
       </Container>
     </Box>

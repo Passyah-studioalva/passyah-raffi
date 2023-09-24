@@ -219,7 +219,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
       ) : (
         <Box
           display={["grid", "grid", "flex", "flex"]}
-          gap={[2, 2, 2, 5]}
+          gap={[2, 2, 5, 5]}
           flexDir={["row-reverse", "row-reverse", "row-reverse", "row"]}
           justifyContent={["center", "center", "center", "space-between"]}
           alignItems={"center"}
@@ -227,7 +227,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           <Grid
             gap={[5, 5, 5, 10]}
             w={["100%", "100%", "100%", "50%"]}
-            mt={[10, 10, 10, 0]}
+            mt={[10, 10, 0, 0]}
           >
             <Box
               as="div"
@@ -261,7 +261,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             minH={["500px","600px","700px","700px"]}
             w={["100vw", "100vw", "100vw", "50%"]}
             objectFit={"cover"}
-            mt={social && [5, 5, 5, 0]}
+            mt={social && [5, 5, 0, 0]}
           />
         </Box>
       )}

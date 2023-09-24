@@ -92,8 +92,8 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <Box mt={'70px'}>
-      <Container maxW={"full"} shadow={"md"} pb={20}>
+    <Box mt={"70px"}>
+      <Container maxW={"full"} shadow={"md"} pb={[10, 10, 10, 20]}>
         <Container maxW={"container.xl"}>
           {/* HERO */}
           <Hero about={true} url={HERO.src} alt="hero" text={text} />
@@ -108,15 +108,15 @@ const AboutPage: React.FC = () => {
           gap={[0, 0, 0, 10]}
           justifyContent={"space-between"}
           color={"gray.600"}
-          mt={[0, 0, 0, 30]}
-          mb={[30]}
+          pt={10}
+          pb={[10, 10, 10, 20]}
         >
-          <Box w={"full"} h={"500px"} overflow={"hidden"}>
+          <Box w={"full"} h={"full"} overflow={"hidden"}>
             <Image
               src={MONITOR.src}
               alt="screen"
               w={"full"}
-              h={"full"}
+              h={["300px", "300px", "300px", "500px"]}
               objectFit={"cover"}
             />
           </Box>
@@ -144,13 +144,17 @@ const AboutPage: React.FC = () => {
       <Container
         maxW={"full"}
         bg={"#FAFAFA"}
-        pt={[10, 10, 10, 20]}
-        pb={10}
-        my={1}
+        pt={10}
+        pb={20}
+        mt={1}
         shadow={"md"}
       >
         <Container maxW={"container.xl"}>
-          <Text as={"h1"} fontSize={30} textAlign={["center", "center", "center", "center", "end"]}>
+          <Text
+            as={"h1"}
+            fontSize={30}
+            textAlign={["center", "center", "center", "center", "end"]}
+          >
             My skills
           </Text>
 
@@ -257,7 +261,9 @@ const AboutPage: React.FC = () => {
                     color={"white"}
                     overflow={"hidden"}
                   >
-                    <Text pl={5} fontSize={["20px"]}>{item.title}</Text>
+                    <Text pl={5} fontSize={["20px"]}>
+                      {item.title}
+                    </Text>
                     <Text
                       whiteSpace={"nowrap"}
                       fontSize={["20px"]}

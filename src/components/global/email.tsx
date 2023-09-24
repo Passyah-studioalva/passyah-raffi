@@ -74,12 +74,7 @@ const Email: React.FC = () => {
   // };
 
   return (
-    <Container
-      maxW={"container.xl"}
-      pt={10}
-      position={"relative"}
-      color={"gray.600"}
-    >
+    <Container maxW={"container.xl"} position={"relative"} color={"gray.600"}>
       <Box className="dangerouslySetInnerHTML">
         <Text as={"h2"} fontSize={50} px={1} mb={10}>
           Send me an email
