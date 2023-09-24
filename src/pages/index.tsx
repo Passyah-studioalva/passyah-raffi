@@ -19,6 +19,7 @@ import {
   UnorderedList,
   ListItem,
   List,
+  Center,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import ACETOURS from "@assets/img-project/acetours-img.png";
@@ -157,8 +158,12 @@ const HomePage = () => {
           hastag: ["#acetours", "#singapore", "#trip", "#destinations"],
         },
         {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["VueJs"],
+        },
+        {
           subtitle: "Framework yang digunakan :",
-          listDesc: ["VueJs", "NuxtJs"],
+          listDesc: ["NuxtJs"],
         },
         {
           subtitle: "Component Library yang digunakan :",
@@ -184,8 +189,12 @@ const HomePage = () => {
           hastag: ["#nucleusui", "#nucleuslite", "nucleusuikit"],
         },
         {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["ReactJs"],
+        },
+        {
           subtitle: "Framework yang digunakan :",
-          listDesc: ["VueJs v2", "NuxtJs v2"],
+          listDesc: ["NextJs"],
         },
         {
           subtitle: "Component Library yang digunakan :",
@@ -210,8 +219,12 @@ const HomePage = () => {
           hastag: ["#freeicons", "#svg", "nucleusicon"],
         },
         {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["VueJs"],
+        },
+        {
           subtitle: "Framework yang digunakan :",
-          listDesc: ["VueJs", "NuxtJs"],
+          listDesc: ["NuxtJs"],
         },
         {
           subtitle: "Component Library yang digunakan :",
@@ -236,8 +249,12 @@ const HomePage = () => {
           hastag: ["#biztips", "#gobiz", "#mitrausaha"],
         },
         {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["ReactJs"],
+        },
+        {
           subtitle: "Framework yang digunakan :",
-          listDesc: ["ReactJs", "NextJs"],
+          listDesc: ["NextJs"],
         },
         {
           subtitle: "Component Library yang digunakan :",
@@ -267,8 +284,12 @@ const HomePage = () => {
           hastag: ["#affiliate", "#outfit", "#rekomendasi"],
         },
         {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["ReactJs"],
+        },
+        {
           subtitle: "Framework yang digunakan :",
-          listDesc: ["ReactJs", "NextJs"],
+          listDesc: ["NextJs"],
         },
         {
           subtitle: "Component Library yang digunakan :",
@@ -285,7 +306,6 @@ const HomePage = () => {
   const orderData = dummy.sort(
     (a: { order: number }, b: { order: number }) => b.order - a.order
   );
-
   const handleData = (e: any) => {
     setData(e);
   };
@@ -295,7 +315,6 @@ const HomePage = () => {
       <Hero url={HERO.src} alt="hero" />
       <Container maxW={"container.xl"} mb={20}>
         <Text
-          ref={btnRef}
           as="h4"
           textAlign={"center"}
           my={10}
@@ -306,7 +325,7 @@ const HomePage = () => {
           SOME OF MY LATEST WORK
         </Text>
         <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
-          {orderData.map((item: any) => {
+          {orderData.slice(0, 3).map((item: any) => {
             return (
               <Box
                 ref={btnRef}
@@ -369,6 +388,18 @@ const HomePage = () => {
             data={data}
           />
         </SimpleGrid>
+        <Center mt={[10]} mb={[10, 20]}>
+          <Link href={"/project"}>
+            <Button
+              backgroundColor={"black"}
+              textColor={"white"}
+              variant="solid"
+              className="animate-button-solid"
+            >
+              View all project
+            </Button>
+          </Link>
+        </Center>
       </Container>
     </Box>
   );
