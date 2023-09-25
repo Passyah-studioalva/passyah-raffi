@@ -27,6 +27,8 @@ import NUCLEUSUI from "@assets/img-project/nucleus-ui-img.png";
 import NUCLEUSICONS from "@assets/img-project/nucleus-icons-img.png";
 import BIZTIPS from "@assets/img-project/biztips-img.png";
 import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
+import SHOPEX from "@assets/img-project/shopex.jpg";
+import SHOPIFY from "@assets/img-project/shopify.png";
 import Hero from "@src/components/global/hero";
 import HERO from "@assets/home.png";
 import ARROW from "@assets/icon/right-arrow.svg";
@@ -127,6 +129,21 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
                   {/* </a> */}
                 </Link>
               )}
+
+              {data?.urlSource && (
+                <Link href={data?.urlSource}>
+                  {/* <Link href={data?.url} passHref legacyBehavior> */}
+                  {/* <a target="_blank" rel="noopener noreferrer"> */}
+                  <Button
+                    variant="solid"
+                    className="animate-button-solid"
+                    onClick={onClose}
+                  >
+                    View to source
+                  </Button>
+                  {/* </a> */}
+                </Link>
+              )}
             </Flex>
           </Grid>
         </DrawerBody>
@@ -146,7 +163,8 @@ const HomePage = () => {
       title: "Travel Singapore",
       subtitle:
         "ACETOURS Singapore - Discover Tours, Attractions, Hotels and more - booking.",
-      color: "#2B569A",
+      bg: "#2B569A",
+      color: "white",
       urlDomain: "http://pkg.ezbooking.co",
       urlVercel: "https://project-travel-orpin.vercel.app",
       img: ACETOURS,
@@ -177,7 +195,8 @@ const HomePage = () => {
       title: "Nucleus UI",
       subtitle:
         "The all-in-one UI kit and Design System for Figma - Supercharge your design workflow, kick-start your projects faster, and level up your process. Pay once and get lifetime updates.",
-      color: "#6B4EFF",
+      bg: "#6B4EFF",
+      color: "white",
       urlDomain: "https://www.nucleus-ui.com",
       urlVercel: "https://figmaterial-thebuddyman.vercel.app",
       img: NUCLEUSUI,
@@ -207,7 +226,8 @@ const HomePage = () => {
       order: 3,
       title: "Nucleus Free Icons",
       subtitle: "Minimal and beautiful open source icons by Nucleus.",
-      color: "#6B4EFF",
+      bg: "#6B4EFF",
+      color: "white",
       urlDomain: "https://icon.nucleus-ui.com",
       urlVercel: "https://project-nucleus-icon.vercel.app",
       img: NUCLEUSICONS,
@@ -237,7 +257,8 @@ const HomePage = () => {
       order: 4,
       title: "BizTips",
       subtitle: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
-      color: "#772583",
+      bg: "#772583",
+      color: "white",
       urlDomain: "https://biztips.gobiz.co.id",
       urlVercel: "https://gobiz-frontend.vercel.app/biztips",
       img: BIZTIPS,
@@ -269,10 +290,47 @@ const HomePage = () => {
     },
     {
       order: 5,
+      title: "Shopex",
+      subtitle:
+        "Partner handal toko online Shopify Anda - SHOPEX membantu semua jenis kebutuhan toko online Shopify, baik besar maupun kecil, selayaknya tim Anda sendiri.",
+      bg: "#F8F6F1",
+      color: "black",
+      urlDomain: "https://shopex.id/",
+      urlVercel: "",
+      img: SHOPEX,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk mengenalkan berbagai macam paket bisnis untuk kebutuhan membangun shopify.",
+          ],
+          hastag: ["#shopify", "#store", "#shopex"],
+        },
+        {
+          subtitle: "Library yang digunakan :",
+          listDesc: ["ReactJs"],
+        },
+        {
+          subtitle: "Framework yang digunakan :",
+          listDesc: ["NextJs"],
+        },
+        {
+          subtitle: "Component Library yang digunakan :",
+          listDesc: ["TailwindCss", "Chakra UI"],
+        },
+        {
+          subtitle: "Data Base yg digunakan :",
+          listDesc: ["Sanity.io"],
+        },
+      ],
+    },
+    {
+      order: 6,
       title: "Racun Shopee",
       subtitle:
         "Mobile app untuk memudahkan seorang affiliator membuat content.",
-      color: "#f53d2d",
+      bg: "#f53d2d",
+      color: "white",
       urlDomain: "",
       urlVercel: "https://racun-shopee.vercel.app/",
       img: RACUNSHOPEE,
@@ -299,6 +357,35 @@ const HomePage = () => {
         {
           subtitle: "Data Base yg digunakan :",
           listDesc: ["Sanity.io"],
+        },
+      ],
+    },
+    {
+      order: 7,
+      title: "Shopify Store",
+      subtitle:
+        "Shopify adalah platform ecommerce yang ditawarkan oleh Studioalva untuk membangun toko online. Ini memungkinkan Anda menjual secara online dengan situs web Anda sendiri atau secara langsung menggunakan aplikasi tempat penjualan.",
+      bg: "#95BF47",
+      color: "black",
+      urlDomain: "",
+      urlVercel: "",
+      urlSource: "https://www.shopify.com/",
+      img: SHOPIFY,
+      desc: [
+        {
+          subtitle: "Manfaat / tujuan website ini dibangun :",
+          listDesc: [
+            "Aplikasi ini dibangun untuk mengenalkan berbagai macam paket bisnis untuk kebutuhan membangun shopify.",
+          ],
+          hastag: ["#shopify", "#store", "#shopex"],
+        },
+        {
+          subtitle: "Kelebihan Shopify :",
+          listDesc: [
+            "Customizable templates",
+            "All in one",
+            "A safe and efficient platform",
+          ],
         },
       ],
     },
@@ -332,8 +419,8 @@ const HomePage = () => {
                 ref={btnRef}
                 onClick={onOpen}
                 key={item.order}
-                bg={item.color}
-                color={"white"}
+                bg={item.bg}
+                color={item.color}
                 minH="300px"
                 maxH="300px"
                 rounded={"md"}
