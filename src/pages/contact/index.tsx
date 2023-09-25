@@ -68,7 +68,7 @@ const ContactPage: React.FC = () => {
         bg={"#F5F5F5"}
         mt={1}
         pt={10}
-        pb={[10, 10, 10, 20]}
+        pb={[5, 5, 5, 5]}
       >
         <Email />
       </Container>

@@ -163,9 +163,9 @@ const Email: React.FC = () => {
         </FormControl>
         <Flex position={"relative"} justifyContent={"end"} p={1} mt={5}>
           <Button
-            isDisabled={!name || !email || !message || textAlert}
+            isLoading={textAlert}
+            loadingText="loading"
             colorScheme="teal"
-            disabled
             type="submit"
             rounded={"md"}
             fontSize={[20, 20, 20, 25]}
@@ -175,9 +175,9 @@ const Email: React.FC = () => {
             Send email
           </Button>
         </Flex>
-        <Text
+        <Flex
           as={"p"}
-          display={textAlert ? "flex" : "none"}
+          visibility={textAlert ? "visible" : "hidden"}
           mt={5}
           p={5}
           justifyContent={"center"}
@@ -187,7 +187,7 @@ const Email: React.FC = () => {
           color={"green.500"}
         >
           Thank you for contacting me 🙌
-        </Text>
+        </Flex>
       </form>
     </Container>
   );
