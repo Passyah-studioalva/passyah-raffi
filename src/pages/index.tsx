@@ -314,7 +314,7 @@ const HomePage = () => {
   return (
     <Box mt={"70px"}>
       <Hero url={HERO.src} alt="hero" />
-      <Container maxW={"container.xl"} mb={20}>
+      <Container maxW={"container.xl"} mb={[10, 10, 10, 20]}>
         <Text
           as="h4"
           textAlign={"center"}
@@ -389,7 +389,7 @@ const HomePage = () => {
             data={data}
           />
         </SimpleGrid>
-        <Flex mt={[10]} mb={[10, 20]} justifyContent={"end"}>
+        <Flex mt={[10]} justifyContent={"end"}>
           <Link href={"/project"}>
             <Center gap={1} className="animate-hover" fontWeight={600}>
               View all project
