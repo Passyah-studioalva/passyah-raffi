@@ -29,6 +29,7 @@ import BIZTIPS from "@assets/img-project/biztips-img.png";
 import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
 import Hero from "@src/components/global/hero";
 import HERO from "@assets/home.png";
+import ARROW from "@assets/icon/right-arrow.svg";
 
 const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
   return (
@@ -324,7 +325,7 @@ const HomePage = () => {
         >
           SOME OF MY LATEST WORK
         </Text>
-        <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
+        <SimpleGrid columns={[1, 1, 3, 3]} spacing={10}>
           {orderData.slice(0, 3).map((item: any) => {
             return (
               <Box
@@ -388,18 +389,14 @@ const HomePage = () => {
             data={data}
           />
         </SimpleGrid>
-        <Center mt={[10]} mb={[10, 20]}>
+        <Flex mt={[10]} mb={[10, 20]} justifyContent={"end"}>
           <Link href={"/project"}>
-            <Button
-              backgroundColor={"black"}
-              textColor={"white"}
-              variant="solid"
-              className="animate-button-solid"
-            >
+            <Center gap={1} className="animate-hover" fontWeight={600}>
               View all project
-            </Button>
+              <Image src={ARROW.src} w={30} h={30} alt="arrow-right" />
+            </Center>
           </Link>
-        </Center>
+        </Flex>
       </Container>
     </Box>
   );
