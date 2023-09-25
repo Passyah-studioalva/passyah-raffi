@@ -347,17 +347,21 @@ const ProjectPage = () => {
         />
 
         <Slider {...settings} ref={(slider: any) => setSlider(slider)}>
-          {images.map((item, idx) => (
-            <Image
-              key={idx}
-              width={"100%"}
-              height={["300px", "300px", "300px", "400px"]}
-              objectFit={"cover"}
-              src={item.url}
-              alt={`img(${idx}`}
-              className="skeleton-box"
-            />
-          ))}
+          {images.map((item, idx) => {
+            return (
+              <Box key={idx}>
+                <Image
+                  display={item && "flex"}
+                  width={"100%"}
+                  height={["300px", "300px", "300px", "400px"]}
+                  objectFit={"cover"}
+                  src={item.url}
+                  alt={`img(${idx}`}
+                  className="skeleton-box"
+                />
+              </Box>
+            );
+          })}
         </Slider>
       </Box>
       <Container maxW={"container.xl"} mb={20}>
