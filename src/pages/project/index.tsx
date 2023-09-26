@@ -167,22 +167,22 @@ const ProjectPage = () => {
       img: ACETOURS,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk menghandle booking yang menawarkan paket-paket perjalanan dan destinasi yang menarik di seluruh benua, negara, dan kota.",
+            "This application was built to handle interesting travel bookings across continents, countries and cities.",
           ],
           hastag: ["#acetours", "#singapore", "#trip", "#destinations"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["VueJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NuxtJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["TailwindCss", "Typescript"],
         },
       ],
@@ -199,22 +199,22 @@ const ProjectPage = () => {
       img: NUCLEUSUI,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini bangun untuk menawarkan jasa yang berbentuk paket-paket dalam meningkatkan produktifitas dan proses yang cepat untuk solusi proyek anda",
+            "This application was developed to offer services in the form of packages to increase productivity and fast processes for your project solutions.",
           ],
           hastag: ["#nucleusui", "#nucleuslite", "nucleusuikit"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["ReactJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NextJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["TailwindCss", "Typescript"],
         },
       ],
@@ -230,22 +230,22 @@ const ProjectPage = () => {
       img: NUCLEUSICONS,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk memudahakan developer dalam membangun aplikasi menggunakan free icon dengan format svg yang dapat dicopy, didownload, dan dicustom baik dari warna, ukuran, dan ketebalan yang diinginkan didalam website ini.",
+            "This application was built to make it easier for developers to build applications using free icons in SVG format which can be copied, downloaded and customized in terms of color, size and thickness as desired on this website.",
           ],
           hastag: ["#freeicons", "#svg", "nucleusicon"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["VueJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NuxtJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["TailwindCss", "Typescript"],
         },
       ],
@@ -253,7 +253,7 @@ const ProjectPage = () => {
     {
       order: 4,
       title: "BizTips",
-      subtitle: "Temukan Tips Praktis untuk Bisnis Anda di BizTips.",
+      subtitle: "Find Practical Tips for Your Business at BizTips.",
       bg: "#772583",
       color: "white",
       urlDomain: "https://biztips.gobiz.co.id",
@@ -261,26 +261,26 @@ const ProjectPage = () => {
       img: BIZTIPS,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk tips trik mitra penjual gofood dalam menjalankan berbagai macam usahanya dengan panduan-panduan dan rekomendasi dari pusat edukasi Mitra Usaha.",
+            "Aplikasi ini dikembangkan untuk tips dan trik bagi mitra penjual Gofood dalam menjalankan berbagai bisnisnya dengan panduan dan rekomendasi dari pusat pendidikan Mitra Bisnis.",
           ],
           hastag: ["#biztips", "#gobiz", "#mitrausaha"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["ReactJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NextJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["Chakra UI", "Typescript"],
         },
         {
-          subtitle: "Data Base yg digunakan :",
+          subtitle: "Database used :",
           listDesc: ["Strapi.io"],
         },
       ],
@@ -289,7 +289,7 @@ const ProjectPage = () => {
       order: 5,
       title: "Shopex",
       subtitle:
-        "Partner handal toko online Shopify Anda - SHOPEX membantu semua jenis kebutuhan toko online Shopify, baik besar maupun kecil, selayaknya tim Anda sendiri.",
+        "Your trusted Shopify online store partner - SHOPEX helps with all types of Shopify online store needs, both large and small, just like your own team.",
       bg: "#F8F6F1",
       color: "black",
       urlDomain: "https://shopex.id/",
@@ -297,26 +297,26 @@ const ProjectPage = () => {
       img: SHOPEX,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk mengenalkan berbagai macam paket bisnis untuk kebutuhan membangun shopify.",
+            "This application was built to introduce various business packages for needs with Shopify Store.",
           ],
           hastag: ["#shopify", "#store", "#shopex"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["ReactJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NextJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["TailwindCss", "Chakra UI"],
         },
         {
-          subtitle: "Data Base yg digunakan :",
+          subtitle: "Database used :",
           listDesc: ["Sanity.io"],
         },
       ],
@@ -325,7 +325,7 @@ const ProjectPage = () => {
       order: 6,
       title: "Racun Shopee",
       subtitle:
-        "Mobile app untuk memudahkan seorang affiliator membuat content.",
+        "Mobile app to make it easier for an affiliate to create content.",
       bg: "#f53d2d",
       color: "white",
       urlDomain: "",
@@ -333,26 +333,26 @@ const ProjectPage = () => {
       img: RACUNSHOPEE,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk memudahakan affiliator dalam menggenerate link dari CMS Sanity.io yang di tampilkan ke client-side, agar pembeli shopee dapat dengan mudah mentrigger link yang di tampilkan di UI",
+            "This application was built to make it easier for affiliates to generate links from CMS Sanity.io which are displayed on the client-side, so that Shopee buyers can easily trigger the links displayed on the UI.",
           ],
           hastag: ["#affiliate", "#outfit", "#rekomendasi"],
         },
         {
-          subtitle: "Library yang digunakan :",
+          subtitle: "Libraries used :",
           listDesc: ["ReactJs"],
         },
         {
-          subtitle: "Framework yang digunakan :",
+          subtitle: "Framework used :",
           listDesc: ["NextJs"],
         },
         {
-          subtitle: "Component Library yang digunakan :",
+          subtitle: "Component Library used :",
           listDesc: ["Chakra UI", "Typescript"],
         },
         {
-          subtitle: "Data Base yg digunakan :",
+          subtitle: "Database used :",
           listDesc: ["Sanity.io"],
         },
       ],
@@ -361,7 +361,7 @@ const ProjectPage = () => {
       order: 7,
       title: "Shopify Store",
       subtitle:
-        "Shopify adalah platform ecommerce yang ditawarkan oleh Studioalva untuk membangun toko online. Ini memungkinkan Anda menjual secara online dengan situs web Anda sendiri atau secara langsung menggunakan aplikasi tempat penjualan.",
+        "Shopify is an ecommerce platform offered by Studioalva for building online stores. It lets you sell online with your own website or directly using point-of-sale applications.",
       bg: "#95BF47",
       color: "black",
       urlDomain: "",
@@ -370,14 +370,14 @@ const ProjectPage = () => {
       img: SHOPIFY,
       desc: [
         {
-          subtitle: "Manfaat / tujuan website ini dibangun :",
+          subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dibangun untuk mengenalkan berbagai macam paket bisnis untuk kebutuhan membangun shopify.",
+            "This Shopify Store is used by Studioalva to handle client requests in creating their personal websites, both in the form of shops and product catalogues.",
           ],
           hastag: ["#shopify", "#store", "#shopex"],
         },
         {
-          subtitle: "Kelebihan Shopify :",
+          subtitle: "Advantages of Shopify :",
           listDesc: [
             "Customizable templates",
             "All in one",
