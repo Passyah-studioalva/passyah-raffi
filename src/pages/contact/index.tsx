@@ -17,35 +17,15 @@ const ContactPage: React.FC = () => {
   <h3>Contact me via social media or email below.<h3/>
   `;
   const social = [
-    // {
-    //   alt: "Gmail",
-    //   src: MAIL,
-    //   url: "mailto:passyah11@gmail.com",
-    // },
     {
       alt: "Linkedin",
       src: LINKEDIN,
       url: "https://www.linkedin.com/in/passyah-raffi/",
     },
-    // {
-    //   alt: "Github",
-    //   src: GITHUB,
-    //   url: "https://github.com/Passyah-studioalva",
-    // },
     {
       alt: "Instagram",
       src: IG,
       url: "https://www.instagram.com/passyah_raffi/",
-    },
-    {
-      alt: "Facebook",
-      src: FB,
-      url: "https://www.facebook.com/passyah11",
-    },
-    {
-      alt: "Twitter",
-      src: TW,
-      url: "https://twitter.com/passyah6499",
     },
   ];
 

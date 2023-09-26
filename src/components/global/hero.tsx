@@ -6,6 +6,7 @@ import {
   Flex,
   SimpleGrid,
   Grid,
+  Center,
 } from "@chakra-ui/react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -235,22 +236,29 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
               dangerouslySetInnerHTML={{ __html: text }}
             />
             {social && (
-              <Flex gap={[5]}>
+              <Box display={["flex", "flex", "grid", "grid"]} gap={[7]}>
                 {social?.map((item) => {
                   return (
                     <Link key={item.alt} href={item.url}>
-                      <Image
-                        src={item?.src?.src}
-                        alt={item.alt}
-                        w={["40px", "40px", "40px", "70px"]}
-                        h={["40px", "40px", "40px", "70px"]}
-                        objectFit={"cover"}
-                        className="animate-hover"
-                      />
+                      <Flex
+                        alignItems={"center"}
+                        gap={[2, 2, 5, 5]}
+                        className="dangerouslySetInnerHTML"
+                      >
+                        <Image
+                          src={item?.src?.src}
+                          alt={item.alt}
+                          w={["40px", "40px", "40px", "60px"]}
+                          h={["40px", "40px", "40px", "60px"]}
+                          objectFit={"cover"}
+                          className="animate-hover"
+                        />
+                        <Text as={"p"}>{item.alt}</Text>
+                      </Flex>
                     </Link>
                   );
                 })}
-              </Flex>
+              </Box>
             )}
           </Grid>
 

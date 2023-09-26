@@ -18,9 +18,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import LINKEDIN from "@assets/icon/linkedin.svg";
-import FB from "@assets/icon/facebook.svg";
 import IG from "@assets/icon/instagram.svg";
-import TW from "@assets/icon/twitter-1.svg";
 
 export default function Navbar() {
   const router = useRouter();
@@ -33,12 +31,12 @@ export default function Navbar() {
   ];
   const listSocial = [
     {
-      title: "linkedin",
+      title: "Linkedin",
       image: LINKEDIN,
       url: "https://www.linkedin.com/in/passyah-raffi/",
     },
     {
-      title: "instagram",
+      title: "Instagram",
       image: IG,
       url: "https://www.instagram.com/passyah_raffi/",
     },
