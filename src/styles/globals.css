@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap");
 @import url("https://fonts.cdnfonts.com/css/proxima-nova-condensed");
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
   padding: 0;
@@ -200,9 +201,26 @@ h4:after {
   white-space: pre-wrap !important;
   text-align: left;
 }
+.style-markdown code {
+  background-color: hsl(210, 8%, 90%);
+  border-radius: 3px;
+  font-size: 75%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+  font-family: "Source Code Pro", monospace;
+}
 .style-markdown pre {
-  padding-inline-start: 40px;
-  text-align: left;
+  /* padding-inline-start: 40px;
+  text-align: left; */
+  padding: 1em;
+  margin-bottom: 1em;
+  font-family: "Source Code Pro", monospace;
+  line-height: 18px;
+  color: #4e443c;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #e8e7dd;
 }
 .style-markdown ul + pre {
   padding-inline-start: 55px;
