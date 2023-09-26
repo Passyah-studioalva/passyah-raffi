@@ -234,7 +234,7 @@ const ProjectPage = () => {
           listDesc: [
             "This application was built to make it easier for developers to build applications using free icons in SVG format which can be copied, downloaded and customized in terms of color, size and thickness as desired on this website.",
           ],
-          hastag: ["#freeicons", "#svg", "nucleusicon"],
+          hastag: ["#freeicons", "#svg", "#nucleusicon"],
         },
         {
           subtitle: "Libraries used :",
