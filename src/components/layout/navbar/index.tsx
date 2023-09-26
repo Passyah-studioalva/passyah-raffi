@@ -38,19 +38,9 @@ export default function Navbar() {
       url: "https://www.linkedin.com/in/passyah-raffi/",
     },
     {
-      title: "facebook",
-      image: FB,
-      url: "https://www.facebook.com/passyah11",
-    },
-    {
       title: "instagram",
       image: IG,
       url: "https://www.instagram.com/passyah_raffi/",
-    },
-    {
-      title: "twitter",
-      image: TW,
-      url: "https://twitter.com/passyah6499",
     },
   ];
 
@@ -78,7 +68,13 @@ export default function Navbar() {
             PR
           </Center>
         </Link>
-        <Flex justifyContent={"space-between"} gap={40} fontSize={20}>
+        <Flex
+          justifyContent={"space-between"}
+          // gap={40}
+          gap={'300px'}
+          fontSize={20}
+          className="list-nav"
+        >
           <UnorderedList display={"flex"} gap={10}>
             {listPage.map((item, idx) => {
               return (

@@ -257,8 +257,8 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
           <Image
             src={url}
             alt={alt}
-            maxH={["400px","600px","500px","550px","700px"]}
-            minH={["400px","600px","500px","550px","700px"]}
+            maxH={["400px", "600px", "500px", "550px", "700px"]}
+            minH={["400px", "600px", "500px", "550px", "700px"]}
             w={["100vw", "100vw", "100vw", "50%"]}
             objectFit={"cover"}
             mt={social && [5, 5, 0, 0]}
