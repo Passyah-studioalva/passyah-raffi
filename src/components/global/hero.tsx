@@ -243,7 +243,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                       <Flex
                         alignItems={"center"}
                         gap={[2, 2, 5, 5]}
-                        className="dangerouslySetInnerHTML"
+                        className="dangerouslySetInnerHTML animate-hover"
                       >
                         <Image
                           src={item?.src?.src}
@@ -251,7 +251,6 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                           w={["40px", "40px", "40px", "60px"]}
                           h={["40px", "40px", "40px", "60px"]}
                           objectFit={"cover"}
-                          className="animate-hover"
                         />
                         <Text as={"p"}>{item.alt}</Text>
                       </Flex>
