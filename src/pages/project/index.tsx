@@ -263,7 +263,7 @@ const ProjectPage = () => {
         {
           subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dikembangkan untuk tips dan trik bagi mitra penjual Gofood dalam menjalankan berbagai bisnisnya dengan panduan dan rekomendasi dari pusat pendidikan Mitra Bisnis.",
+            "This application was developed for tips and tricks for Gofood seller partners in running their various businesses with guidance and recommendations from the Business Partner education center.",
           ],
           hastag: ["#biztips", "#gobiz", "#mitrausaha"],
         },
