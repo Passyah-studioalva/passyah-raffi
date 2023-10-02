@@ -7,7 +7,6 @@ import {
   Image,
   Drawer,
   DrawerBody,
-  // DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -26,12 +25,13 @@ import ACETOURS from "@assets/img-project/acetours-img.png";
 import NUCLEUSUI from "@assets/img-project/nucleus-ui-img.png";
 import NUCLEUSICONS from "@assets/img-project/nucleus-icons-img.png";
 import BIZTIPS from "@assets/img-project/biztips-img.png";
-import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
 import SHOPEX from "@assets/img-project/shopex.jpg";
+import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
 import SHOPIFY from "@assets/img-project/shopify.png";
-import Hero from "@src/components/global/hero";
+import Hero from "@components/global/hero";
 import HERO from "@assets/home.png";
 import ARROW from "@assets/icon/right-arrow.svg";
+import STATICDATA from "@src/static/project.json"
 
 const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
   return (
@@ -61,7 +61,6 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
             <Text fontSize={20} fontWeight={600}>
               {data?.subtitle}
             </Text>
-            <Text></Text>
           </Box>
           <Grid gap={5}>
             {data?.desc?.map((item: any, idx: number) => {
@@ -117,8 +116,6 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
 
               {data?.urlVercel && (
                 <Link href={data?.urlVercel}>
-                  {/* <Link href={data?.url} passHref legacyBehavior> */}
-                  {/* <a target="_blank" rel="noopener noreferrer"> */}
                   <Button
                     variant="solid"
                     className="animate-button-solid"
@@ -126,14 +123,11 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
                   >
                     Preview to production
                   </Button>
-                  {/* </a> */}
                 </Link>
               )}
 
               {data?.urlSource && (
                 <Link href={data?.urlSource}>
-                  {/* <Link href={data?.url} passHref legacyBehavior> */}
-                  {/* <a target="_blank" rel="noopener noreferrer"> */}
                   <Button
                     variant="solid"
                     className="animate-button-solid"
@@ -141,20 +135,19 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
                   >
                     View to source
                   </Button>
-                  {/* </a> */}
                 </Link>
               )}
             </Flex>
           </Grid>
         </DrawerBody>
-
-        {/* <DrawerFooter></DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   );
 };
 
 const HomePage = () => {
+  // console.log(STATICDATA);
+  
   const btnRef = React.useRef<HTMLInputElement>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dummy = [
@@ -266,7 +259,7 @@ const HomePage = () => {
         {
           subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "Aplikasi ini dikembangkan untuk tips dan trik bagi mitra penjual Gofood dalam menjalankan berbagai bisnisnya dengan panduan dan rekomendasi dari pusat pendidikan Mitra Bisnis.",
+            "This application was developed for tips and tricks for Gofood seller partners in running their various businesses with guidance and recommendations from the Business Partner education center.",
           ],
           hastag: ["#biztips", "#gobiz", "#mitrausaha"],
         },

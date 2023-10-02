@@ -17,7 +17,8 @@
     "paths": {
       "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@static/*": ["./static/*"]
     },
     "typeRoots": ["types.d.ts"]
   },
