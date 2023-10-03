@@ -75,6 +75,7 @@ h4:after {
 
 .animate-hover {
   list-style-type: none;
+  cursor: pointer;
 }
 
 .list-nav ul {
