@@ -18,8 +18,7 @@ import {
 import Link from "next/link";
 
 const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
-  console.log(data);
-  
+
   return (
     <Drawer
       isOpen={isOpen}
