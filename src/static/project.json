@@ -8,7 +8,7 @@
       "color": "white",
       "urlDomain": "http://pkg.ezbooking.co",
       "urlVercel": "https://project-travel-orpin.vercel.app",
-      "img": "@assets/img-project/acetours-img.png",
+      "img": "./acetours-img.png",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -40,7 +40,7 @@
       "color": "white",
       "urlDomain": "https://www.nucleus-ui.com",
       "urlVercel": "https://figmaterial-thebuddyman.vercel.app",
-      "img": "@assets/img-project/nucleus-ui-img.png",
+      "img": "./nucleus-ui-img.png",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -71,7 +71,7 @@
       "color": "white",
       "urlDomain": "https://icon.nucleus-ui.com",
       "urlVercel": "https://project-nucleus-icon.vercel.app",
-      "img": "@assets/img-project/nucleus-icons-img.png",
+      "img": "./nucleus-icons-img.png",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -102,7 +102,7 @@
       "color": "white",
       "urlDomain": "https://biztips.gobiz.co.id",
       "urlVercel": "https://gobiz-frontend.vercel.app/biztips",
-      "img": "@assets/img-project/biztips-img.png",
+      "img": "./biztips-img.png",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -138,7 +138,7 @@
       "color": "black",
       "urlDomain": "https://shopex.id/",
       "urlVercel": "",
-      "img": "@assets/img-project/shopex.jpg",
+      "img": "./shopex.jpg",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -174,7 +174,7 @@
       "color": "white",
       "urlDomain": "",
       "urlVercel": "https://racun-shopee.vercel.app/",
-      "img": "@assets/img-project/shopee-affiliates.jpg",
+      "img": "./shopee-affiliates.jpg",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
@@ -211,7 +211,7 @@
       "urlDomain": "",
       "urlVercel": "",
       "urlSource": "https://www.shopify.com/",
-      "img": "@assets/img-project/shopify.png",
+      "img": "./shopify.png",
       "desc": [
         {
           "subtitle": "Benefits / purpose of this website :",
