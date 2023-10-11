@@ -64,7 +64,7 @@ const ProjectPage = () => {
         <Text
           as="h4"
           textAlign={"center"}
-          mt={["50px"]}
+          my={["50px"]}
           fontSize={25}
           color={"gray.600"}
         >
