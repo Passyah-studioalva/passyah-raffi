@@ -8,6 +8,7 @@ import BIZTIPS from "@assets/img-project/biztips-img.png";
 import SHOPEX from "@assets/img-project/shopex.jpg";
 import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
 import SHOPIFY from "@assets/img-project/shopify.png";
+import SUMA from "@assets/img-project/dekstop-suma.png";
 import ComponentDrawer from "@components/global/componentDrawer";
 
 const CardProject = () => {
@@ -219,22 +220,28 @@ const CardProject = () => {
     },
     {
       order: 7,
-      title: "Shopify Store",
+      title: "Suma Briket Premium",
       subtitle:
-        "Shopify is an ecommerce platform offered by Studioalva for building online stores. It lets you sell online with your own website or directly using point-of-sale applications.",
-      bg: "#95BF47",
+        "Burn Sustainably with Our Selections of Eco-Friendly Briquettes.",
+      bg: "#F3F3F3",
       color: "black",
-      urlDomain: "",
+      urlDomain: "https://charcoalpremium.com/",
       urlVercel: "",
-      urlSource: "https://www.shopify.com/",
-      img: SHOPIFY,
+      urlSource: "",
+      img: SUMA,
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
           listDesc: [
-            "This Shopify Store is used by Studioalva to handle client requests in creating their personal websites, both in the form of shops and product catalogues.",
+            "Suma Briquette Premium is a company profile site built with a Shopify store. aims to increase sales and accommodate the growth of its branding business.",
           ],
-          hastag: ["#shopify", "#store", "#shopex"],
+          hastag: ["#shopify", "#store", "#briket"],
+        },
+        {
+          subtitle: "technology used :",
+          listDesc: [
+            "Shopify",
+          ],
         },
         {
           subtitle: "Advantages of Shopify :",
@@ -242,6 +249,7 @@ const CardProject = () => {
             "Customizable templates",
             "All in one",
             "A safe and efficient platform",
+            "E-commerce platform and website builder"
           ],
         },
       ],
