@@ -118,6 +118,8 @@ const AboutPage: React.FC = () => {
               w={"full"}
               h={["300px", "300px", "300px", "500px"]}
               objectFit={"cover"}
+              className="skeleton-box"
+              loading="lazy"
             />
           </Box>
           <Flex
@@ -176,7 +178,8 @@ const AboutPage: React.FC = () => {
                       alt={item.title}
                       w={"50px"}
                       h={"50px"}
-                      className="chart-category"
+                      className="chart-category skeleton-box"
+                      loading="lazy"
                     />
                     <Text
                       ml={"50px"}

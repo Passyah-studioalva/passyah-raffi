@@ -293,6 +293,8 @@ const CardProject = () => {
                       : "cover"
                   }
                   objectPosition={"center"}
+                  className="skeleton-box"
+                  loading="lazy"
                 />
 
                 <Box
@@ -338,6 +340,8 @@ const CardProject = () => {
                       : "cover"
                   }
                   objectPosition={"center"}
+                  className="skeleton-box"
+                  loading="lazy"
                 />
 
                 <Box

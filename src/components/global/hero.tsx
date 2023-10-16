@@ -275,6 +275,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             w={["100vw", "100vw", "100vw", "50%"]}
             objectFit={"cover"}
             mt={social && [5, 5, 0, 0]}
+            className="skeleton-box"
             loading="lazy"
           />
         </Box>

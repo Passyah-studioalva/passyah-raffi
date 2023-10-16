@@ -63,6 +63,8 @@ const BlogPage: React.FC = ({ blogs }: any) => {
                       .url()}
                     alt={item.mainImage.asset._ref}
                     rounded={"md"}
+                    className="skeleton-box"
+                    loading="lazy"
                   />
                 )}
               </Box>

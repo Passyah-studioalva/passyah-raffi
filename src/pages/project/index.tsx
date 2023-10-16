@@ -52,8 +52,9 @@ const ProjectPage = () => {
                   height={["300px", "300px", "300px", "400px"]}
                   objectFit={"cover"}
                   src={item.url}
-                  alt={`img(${idx}`}
+                  alt={`img(${idx})`}
                   className="skeleton-box"
+                  loading="lazy"
                 />
               </Box>
             );

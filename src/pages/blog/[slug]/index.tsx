@@ -41,6 +41,8 @@ const BlogDetailPage: React.FC = ({ blogs }: any) => {
               .url()}
             alt={data[0]?.mainImage.asset._ref}
             height={["full", "full", "full", "565px"]}
+            className="skeleton-box"
+            loading="lazy"
           />
         )}
       </Flex>
