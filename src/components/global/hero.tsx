@@ -123,6 +123,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             h={["900px", "1000px", "1000px", "1000px"]}
             objectFit={"cover"}
             zIndex={10}
+            loading="lazy"
           />
 
           <Image
@@ -134,6 +135,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             alt={"code"}
             w={"500px"}
             h={"500px"}
+            loading="lazy"
           />
 
           {logo1.map((item, idx) => {
@@ -164,6 +166,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                       ? "40%"
                       : "50%"
                   }
+                  loading="lazy"
                 />
               </Box>
             );
@@ -196,6 +199,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                       ? "40%"
                       : "50%"
                   }
+                  loading="lazy"
                 />
               </Box>
             );
@@ -212,6 +216,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                   objectFit={"cover"}
                   top={"400px"}
                   left={"20%"}
+                  loading="lazy"
                 />
               </Box>
             );
@@ -251,6 +256,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
                           w={["40px", "40px", "40px", "60px"]}
                           h={["40px", "40px", "40px", "60px"]}
                           objectFit={"cover"}
+                          loading="lazy"
                         />
                         <Text as={"p"}>{item.alt}</Text>
                       </Flex>
@@ -269,6 +275,7 @@ const Hero: React.FC<Props> = ({ url, alt, text, about, social }) => {
             w={["100vw", "100vw", "100vw", "50%"]}
             objectFit={"cover"}
             mt={social && [5, 5, 0, 0]}
+            loading="lazy"
           />
         </Box>
       )}
