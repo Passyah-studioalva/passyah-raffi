@@ -10,6 +10,7 @@ import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
 import SHOPIFY from "@assets/img-project/shopify.png";
 import SUMA from "@assets/img-project/dekstop-suma.png";
 import ComponentDrawer from "@components/global/componentDrawer";
+import WEDDING from "@assets/img-project/mempelai.png";
 
 const CardProject = () => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const CardProject = () => {
       urlDomain: "http://pkg.ezbooking.co",
       urlVercel: "https://project-travel-orpin.vercel.app",
       img: ACETOURS,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -58,6 +60,7 @@ const CardProject = () => {
       urlDomain: "https://www.nucleus-ui.com",
       urlVercel: "https://figmaterial-thebuddyman.vercel.app",
       img: NUCLEUSUI,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -89,6 +92,7 @@ const CardProject = () => {
       urlDomain: "https://icon.nucleus-ui.com",
       urlVercel: "https://project-nucleus-icon.vercel.app",
       img: NUCLEUSICONS,
+      objectFit: "fill",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -120,6 +124,7 @@ const CardProject = () => {
       urlDomain: "https://biztips.gobiz.co.id",
       urlVercel: "",
       img: BIZTIPS,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -156,6 +161,7 @@ const CardProject = () => {
       urlDomain: "https://shopex.id/",
       urlVercel: "",
       img: SHOPEX,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -192,6 +198,7 @@ const CardProject = () => {
       urlDomain: "",
       urlVercel: "https://racun-shopee.vercel.app/",
       img: RACUNSHOPEE,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -229,6 +236,7 @@ const CardProject = () => {
       urlVercel: "",
       urlSource: "",
       img: SUMA,
+      objectFit: "cover",
       desc: [
         {
           subtitle: "Benefits / purpose of this website :",
@@ -239,9 +247,7 @@ const CardProject = () => {
         },
         {
           subtitle: "technology used :",
-          listDesc: [
-            "Shopify",
-          ],
+          listDesc: ["Shopify"],
         },
         {
           subtitle: "Advantages of Shopify :",
@@ -249,8 +255,50 @@ const CardProject = () => {
             "Customizable templates",
             "All in one",
             "A safe and efficient platform",
-            "E-commerce platform and website builder"
+            "E-commerce platform and website builder",
           ],
+        },
+      ],
+    },
+    {
+      order: 8,
+      title: "Wedding Invitation",
+      subtitle:
+        "This is a mobile application for Islamic themed wedding events whose data can be changed according to needs quickly in real time with sanity.io.",
+      bg: "#9a8c78",
+      color: "white",
+      urlDomain: "",
+      urlVercel: "https://wedding-kita.vercel.app/adrian-selpi",
+      img: WEDDING,
+      objectFit: "contain",
+      desc: [
+        {
+          subtitle: "This application is equipped with features :",
+          listDesc: [
+            "Location Navigation",
+            "Countdown Until the D Day",
+            "Free to Request Music / Songs / Backsound",
+            "Wedding Gift with Bank Account or Barcode",
+            "Live Online feature",
+            "RSVP (Guest attendance confirmation) feature connected to Google Sheets",
+          ],
+          hastag: ["#wedding", "#invitation", "#digitalwedding"],
+        },
+        {
+          subtitle: "Libraries used :",
+          listDesc: ["ReactJs"],
+        },
+        {
+          subtitle: "Framework used :",
+          listDesc: ["NextJs"],
+        },
+        {
+          subtitle: "Component Library used :",
+          listDesc: ["Chakra UI", "Typescript"],
+        },
+        {
+          subtitle: "Database used :",
+          listDesc: ["Sanity.io"],
         },
       ],
     },
@@ -287,11 +335,7 @@ const CardProject = () => {
                   alt={item.title}
                   w="full"
                   h={"200px"}
-                  objectFit={
-                    item.title.toLocaleLowerCase() === "nucleus free icons"
-                      ? "fill"
-                      : "cover"
-                  }
+                  objectFit={item.objectFit}
                   objectPosition={"center"}
                   className="skeleton-box"
                   loading="lazy"
@@ -334,11 +378,7 @@ const CardProject = () => {
                   alt={item.title}
                   w="full"
                   h={"200px"}
-                  objectFit={
-                    item.title.toLocaleLowerCase() === "nucleus free icons"
-                      ? "fill"
-                      : "cover"
-                  }
+                  objectFit={item.objectFit}
                   objectPosition={"center"}
                   className="skeleton-box"
                   loading="lazy"
@@ -358,8 +398,7 @@ const CardProject = () => {
                 </Box>
               </Box>
             );
-          })
-      }
+          })}
 
       <ComponentDrawer
         isOpen={isOpen}

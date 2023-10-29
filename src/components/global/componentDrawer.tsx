@@ -38,7 +38,7 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
             alt={data?.title}
             w="full"
             h={"300px"}
-            objectFit={"cover"}
+            objectFit={data?.objectFit}
             objectPosition={"center"}
           />
 
