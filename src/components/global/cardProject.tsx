@@ -7,10 +7,13 @@ import NUCLEUSICONS from "@assets/img-project/nucleus-icons-img.png";
 import BIZTIPS from "@assets/img-project/biztips-img.png";
 import SHOPEX from "@assets/img-project/shopex.jpg";
 import RACUNSHOPEE from "@assets/img-project/shopee-affiliates.jpg";
-import SHOPIFY from "@assets/img-project/shopify.png";
 import SUMA from "@assets/img-project/dekstop-suma.png";
 import ComponentDrawer from "@components/global/componentDrawer";
 import WEDDING from "@assets/img-project/mempelai.png";
+import WEDDING02 from "@assets/img-project/mempelai02.png";
+import GREENLIGHT from "@assets/img-project/greenlight.png";
+import HERMO from "@assets/img-project/hermo.svg";
+import HANNA from "@assets/img-project/hanna.jpg";
 
 const CardProject = () => {
   const router = useRouter();
@@ -262,13 +265,13 @@ const CardProject = () => {
     },
     {
       order: 8,
-      title: "Wedding Invitation",
+      title: "Wedding Invitation (Template 01)",
       subtitle:
         "This is a mobile application for Islamic themed wedding events whose data can be changed according to needs quickly in real time with sanity.io.",
       bg: "#9a8c78",
       color: "white",
       urlDomain: "",
-      urlVercel: "https://wedding-kita.vercel.app/adrian-selpi",
+      urlVercel: "https://wedding-kita02.vercel.app/adrian-selpi",
       img: WEDDING,
       objectFit: "contain",
       desc: [
@@ -299,6 +302,153 @@ const CardProject = () => {
         {
           subtitle: "Database used :",
           listDesc: ["Sanity.io"],
+        },
+      ],
+    },
+    {
+      order: 9,
+      title: "Wedding Invitation (Template 02)",
+      subtitle:
+        "This is a mobile application for Islamic themed wedding events whose data can be changed according to needs quickly in real time with sanity.io.",
+      bg: "rgba(0, 0, 0, 0.6);",
+      color: "white",
+      urlDomain: "",
+      urlVercel: "https://wedding-kita01.vercel.app/iqbal-zulaiha",
+      img: WEDDING02,
+      objectFit: "contain",
+      desc: [
+        {
+          subtitle: "This application is equipped with features :",
+          listDesc: [
+            "Location Navigation",
+            "Countdown Until the D Day",
+            "Free to Request Music / Songs / Backsound",
+            "Wedding Gift with Bank Account or Barcode",
+            "Live Online feature",
+            "RSVP (Guest attendance confirmation) feature connected to Google Sheets",
+          ],
+          hastag: ["#wedding", "#invitation", "#digitalwedding"],
+        },
+        {
+          subtitle: "Libraries used :",
+          listDesc: ["ReactJs"],
+        },
+        {
+          subtitle: "Framework used :",
+          listDesc: ["NextJs"],
+        },
+        {
+          subtitle: "Component Library used :",
+          listDesc: ["Chakra UI", "Typescript"],
+        },
+        {
+          subtitle: "Database used :",
+          listDesc: ["Sanity.io"],
+        },
+      ],
+    },
+    {
+      order: 10,
+      title: "GREENLIGHT",
+      subtitle:
+        "Find a variety of fashion products at Greenlight.co.id.",
+      bg: "#616d60",
+      color: "white",
+      urlDomain: "",
+      urlVercel: "https://qtejtj467lm6o0hl-78480048450.shopifypreview.com",
+      urlSource: "",
+      img: GREENLIGHT,
+      objectFit: "contain",
+      desc: [
+        {
+          subtitle: "Under Way Project :",
+          listDesc: [
+            "I redesigned the ui on the homepage, product details page, and collections page in this project using Shopify with Studioalva.",
+          ],
+          hastag: ["#shopify", "#store", "#greenlight"],
+        },
+        {
+          subtitle: "technology used :",
+          listDesc: ["Shopify"],
+        },
+        {
+          subtitle: "Advantages of Shopify :",
+          listDesc: [
+            "Customizable templates",
+            "All in one",
+            "A safe and efficient platform",
+            "E-commerce platform and website builder",
+          ],
+        },
+      ],
+    },
+    {
+      order: 11,
+      title: "HERMO",
+      subtitle:
+        "Hermo is a beauty store that sells various types of cosmetics.",
+      bg: "#d51116",
+      color: "white",
+      urlDomain: "",
+      urlVercel: "https://0zd9mmb3d07ow7an-65335361774.shopifypreview.com",
+      urlSource: "",
+      img: HERMO,
+      objectFit: "contain",
+      desc: [
+        {
+          subtitle: "Under Way Project :",
+          listDesc: [
+            "I redesigned the ui on the homepage, product details page, and collections page in this project using Shopify with Studioalva.",
+          ],
+          hastag: ["#shopify", "#store", "#hermo"],
+        },
+        {
+          subtitle: "technology used :",
+          listDesc: ["Shopify"],
+        },
+        {
+          subtitle: "Advantages of Shopify :",
+          listDesc: [
+            "Customizable templates",
+            "All in one",
+            "A safe and efficient platform",
+            "E-commerce platform and website builder",
+          ],
+        },
+      ],
+    },
+    {
+      order: 12,
+      title: "Hanna Biensi",
+      subtitle:
+        "Home accessories, mouth-blownvases, patterned glasses & something more.",
+      bg: "#6F3C2B",
+      color: "white",
+      urlDomain: "",
+      urlVercel: "https://qjt6jutr2978qkzc-61412966556.shopifypreview.com",
+      urlSource: "",
+      img: HANNA,
+      objectFit: "cover",
+      desc: [
+        {
+          subtitle: "Under Way Project :",
+          listDesc: [
+            "I redesigned the ui on the homepage, product details page, and collections page in this project using Shopify with Studioalva.",
+          ],
+          hastag: ["#shopify", "#store", "#hermo"],
+        },
+        {
+          subtitle: "technology used :",
+          listDesc: ["Shopify"],
+        },
+        {
+          subtitle: "Advantages of Shopify :",
+          listDesc: [
+            "Customizable templates",
+            "All in one",
+            "A safe and efficient platform",
+            "E-commerce platform and website builder",
+          ],
         },
       ],
     },
