@@ -24,7 +24,7 @@ const AboutPage: React.FC = () => {
     <h1>${router.asPath.replaceAll("/", "")}.</h1>
     <h3>I'm a front-end developer based on DKI Jakarta, Indonesia.<h3/>
     <p>
-      Since 2022 I've known programs to explore HTML, CSS, and javascript. </br>
+      Since 2022 I've known programs to explore HTML, CSS, and Javascript. </br>
       I focused on studying at the <a target="_blank" rel="noopener noreferrer" href="https://dumbways.id/">Dumbways.id</a> bootcamp.</br>
       I currently work as a frontend developer at <a target="_blank" rel="noopener noreferrer" href="https://studioalva.co/">studioalva.co.</a>
     <p/>
