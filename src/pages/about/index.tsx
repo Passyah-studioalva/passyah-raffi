@@ -133,7 +133,7 @@ const AboutPage: React.FC = () => {
             <Text as={"p"}>
               I like to drink milk tea <br />
               I&apos;m interested in a challenge <br />
-              my hobby to play basketball <br />
+              My hobby to play Basketball <br />
               I like to work flexibility <br />
               I want to live in Japan <br />I like to take time to study and
               read
