@@ -15,9 +15,9 @@ import {
   ListItem,
   List,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
 const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
+  let urlPrev = data.urlDomain ? data.urlDomain : data?.urlVercel;
 
   return (
     <Drawer
@@ -34,7 +34,7 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
 
         <DrawerBody>
           <Image
-            src={data?.img?.src}
+            src={data?.src?.src}
             alt={data?.title}
             w="full"
             h={"300px"}
@@ -47,33 +47,42 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
               {data?.subtitle}
             </Text>
           </Box>
+
           <Grid gap={5}>
             {data?.desc?.map((item: any, idx: number) => {
               return (
                 <List key={idx}>
-                  <Text>{item.subtitle}</Text>
-                  <UnorderedList>
-                    {item.listDesc.map((list: any, id: number) => {
-                      return <ListItem key={id}>{list}</ListItem>;
-                    })}
+                  <Text>{item.descPassyahRaffi}</Text>
+                  <UnorderedList className="ul-custom">
+                    {data.listDesc.map(
+                      (list: any, id: number) =>
+                        idx === id && <ListItem key={id}>{list}</ListItem>
+                    )}
                   </UnorderedList>
-                  <Flex gap={3} ml={4}>
-                    {item.hastag &&
-                      item.hastag.map((tag: any, id: number) => {
+                  {idx === 0 && (
+                    <Box ml={4}>
+                      {data?.hashtag?.map((tags: any, id: number) => {
                         return (
-                          <ListItem
-                            key={id}
-                            bg={"gray.100"}
-                            px={1}
-                            rounded={"full"}
-                            fontSize={14}
-                            letterSpacing={0.5}
-                          >
-                            {tag}
-                          </ListItem>
+                          <Flex gap={3} key={id}>
+                            {tags.hashtagPassyahRaffi.map(
+                              (tag: any, id: number) => (
+                                <ListItem
+                                  key={id}
+                                  bg={"gray.100"}
+                                  px={2}
+                                  rounded={"full"}
+                                  fontSize={14}
+                                  letterSpacing={0.5}
+                                >
+                                  #{tag}
+                                </ListItem>
+                              )
+                            )}
+                          </Flex>
                         );
                       })}
-                  </Flex>
+                    </Box>
+                  )}
                 </List>
               );
             })}
@@ -84,43 +93,16 @@ const ComponentDrawer = ({ isOpen, onOpen, onClose, btnRef, data }: any) => {
               justifyContent={["start", "start", "start", "end"]}
               alignItems={"center"}
             >
-              {data?.urlDomain && (
-                <Link href={data?.urlDomain}>
-                  <Button
-                    colorScheme={"transparent"}
-                    borderColor={"black"}
-                    variant="outline"
-                    className="animate-hover"
-                  >
-                    Preview to domain
-                  </Button>
-                </Link>
-              )}
-
-              {data?.urlDomain && data?.urlVercel ? <Text>or</Text> : null}
-
-              {data?.urlVercel && (
-                <Link href={data?.urlVercel}>
+              {urlPrev && urlPrev.length > 0 && (
+                <a href={urlPrev} target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="solid"
                     className="animate-button-solid"
                     onClick={onClose}
                   >
-                    Preview to production
+                    Preview to project
                   </Button>
-                </Link>
-              )}
-
-              {data?.urlSource && (
-                <Link href={data?.urlSource}>
-                  <Button
-                    variant="solid"
-                    className="animate-button-solid"
-                    onClick={onClose}
-                  >
-                    View to source
-                  </Button>
-                </Link>
+                </a>
               )}
             </Flex>
           </Grid>

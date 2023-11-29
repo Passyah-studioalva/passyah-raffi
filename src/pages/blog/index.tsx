@@ -8,7 +8,7 @@ import {
   SimpleGrid,
   Grid,
 } from "@chakra-ui/react";
-import { createClient } from "next-sanity";
+import { client } from "@src/api";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Link from "next/link";
@@ -95,16 +95,10 @@ const BlogPage: React.FC = ({ blogs }: any) => {
 
 export default BlogPage;
 
-const client = createClient({
-  projectId: "iwjwzghi",
-  dataset: "production",
-  /* YY - MM - DD */
-  apiVersion: "2023-11-09",
-  useCdn: true,
-});
-
 export async function getStaticProps() {
-  const blogs = await client.fetch(`*[_type == "passyahRaffi"]`);
+  const blogs = await client.fetch(
+    `*[_type == "${process.env.NEXT_PUBLIC_PASSYAHRAFI_KEY}"]`
+  );
 
   return {
     props: {

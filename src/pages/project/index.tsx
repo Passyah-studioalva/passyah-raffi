@@ -2,8 +2,9 @@ import * as React from "react";
 import { Box, Container, Text, Image } from "@chakra-ui/react";
 import Slider from "react-slick";
 import CardProject from "@src/components/global/cardProject";
+import { client } from "@src/api";
 
-const ProjectPage = () => {
+const ProjectPage: React.FC = ({ projects }: any) => {
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const images = [
     {
@@ -71,10 +72,34 @@ const ProjectPage = () => {
         >
           SOME OF MY LATEST WORK
         </Text>
-        <CardProject />
+        <CardProject projects={projects} />
       </Container>
     </>
   );
 };
 
 export default ProjectPage;
+
+export async function getStaticProps() {
+  const projects = await client.fetch(
+    `*[_type == "${process.env.NEXT_PUBLIC_PROJECT_KEY}"] {
+      ...,
+      desc[]-> {
+        "descPassyahRaffi": title,
+      },
+      hashtag[]-> {
+        "hashtagPassyahRaffi": hashtag,
+      },
+      src {
+        "src":asset->.url
+      },
+    }`
+  );
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 10, // In seconds
+  };
+}

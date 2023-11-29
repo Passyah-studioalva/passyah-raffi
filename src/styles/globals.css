@@ -34,6 +34,10 @@ ul {
   padding-inline-start: 0 !important; */
 }
 
+.ul-custom {
+  margin-inline-start: 1.1em !important;
+}
+
 h4 {
   overflow: hidden;
   text-align: center;

@@ -5,8 +5,9 @@ import Hero from "@components/global/hero";
 import HERO from "@assets/home.png";
 import ARROW from "@assets/icon/right-arrow.svg";
 import CardProject from "@src/components/global/cardProject";
+import { client } from "@src/api";
 
-const HomePage = () => {
+const HomePage: React.FC = ({ projects }: any) => {
 
   return (
     <Box mt={"70px"}>
@@ -22,7 +23,7 @@ const HomePage = () => {
         >
           SOME OF MY LATEST WORK
         </Text>
-        <CardProject />
+        <CardProject projects={projects} />
         <Flex mt={[10]} justifyContent={"end"}>
           <Link href={"/project"}>
             <Center gap={1} className="animate-hover" fontWeight={600}>
@@ -37,3 +38,27 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export async function getStaticProps() {
+  const projects = await client.fetch(
+    `*[_type == "${process.env.NEXT_PUBLIC_PROJECT_KEY}"] {
+      ...,
+      desc[]-> {
+        "descPassyahRaffi": title,
+      },
+      hashtag[]-> {
+        "hashtagPassyahRaffi": hashtag,
+      },
+      src {
+        "src":asset->.url
+      },
+    }`
+  );
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 10, // In seconds
+  };
+}
