@@ -43,6 +43,7 @@ const CardProject: React.FC<Props> = ({ projects }) => {
               key={item.order}
               bg={item.bgColor}
               color={item.color}
+              border={item.borderColor && `1px solid ${item.borderColor}`}
               minH="300px"
               maxH="300px"
               rounded={"md"}
@@ -60,6 +61,9 @@ const CardProject: React.FC<Props> = ({ projects }) => {
                 objectFit={item.objectFit}
                 objectPosition={"center"}
                 className="skeleton-box"
+                bgColor={item.bgColorImg && item.bgColorImg}
+                borderBottom={item.borderColor && item.borderColor}
+                p={item.paddingImg && item.paddingImg}
                 loading="lazy"
               />
 
