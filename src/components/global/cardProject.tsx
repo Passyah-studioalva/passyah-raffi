@@ -43,7 +43,7 @@ const CardProject: React.FC<Props> = ({ projects }) => {
               key={item.order}
               bg={item.bgColor}
               color={item.color}
-              border={item.borderColor && `1px solid ${item.borderColor}`}
+              border={item.borderColor && item.borderColor}
               minH="300px"
               maxH="300px"
               rounded={"md"}
