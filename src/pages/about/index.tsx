@@ -1,25 +1,58 @@
-import {
-  Container,
-  Text,
-  Box,
-  ListItem,
-  UnorderedList,
-  Flex,
-  Image,
-  Grid,
-} from "@chakra-ui/react";
+import { Container, Text, Box, Flex, Image, Center } from "@chakra-ui/react";
 import Hero from "@src/components/global/hero";
-import GLORY from "@assets/level-experience/Glory.jpg";
-import MYTHIC from "@assets/level-experience/Mythic.jpg";
-import LEGEND from "@assets/level-experience/Legend.jpg";
-import EPIC from "@assets/level-experience/Epic.jpg";
-import GRANDMASTER from "@assets/level-experience/Grandmaster.jpg";
 import HERO from "@assets/img-hero.JPG";
 import MONITOR from "@assets/monitor.png";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const AboutPage: React.FC = () => {
   const router = useRouter();
+  const mySkills = [
+    {
+      src: "./skills/html.png",
+      title: "HTML",
+    },
+    {
+      src: "./skills/js.png",
+      title: "Javascript",
+    },
+    {
+      src: "./skills/vue.png",
+      title: "Vuejs",
+    },
+    {
+      src: "./skills/react.png",
+      title: "Reactjs",
+    },
+    {
+      src: "./skills/tailwind.png",
+      title: "Tailwind CSS",
+    },
+    {
+      src: "./skills/api.png",
+      title: "Restfull API",
+    },
+    {
+      src: "./skills/ts.png",
+      title: "Typescript",
+    },
+    {
+      src: "./skills/nuxtjs.png",
+      title: "Nuxtjs",
+    },
+    {
+      src: "./skills/nextjs.png",
+      title: "Nextjs",
+    },
+    {
+      src: "./skills/chakraui.png",
+      title: "Chakra UI",
+    },
+    {
+      src: "./skills/css.png",
+      title: "CSS",
+    },
+  ];
   const text = `
     <h1>${router.asPath.replaceAll("/", "")}.</h1>
     <h3>I'm a front-end developer based on DKI Jakarta, Indonesia.<h3/>
@@ -29,67 +62,35 @@ const AboutPage: React.FC = () => {
       I currently work as a frontend developer at <a target="_blank" rel="noopener noreferrer" href="https://studioalva.co/">studioalva.co.</a>
     <p/>
   `;
+  const htmlCode = `<pre class="code">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8" />
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+        &lt;title>My Website&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Hello, World!&lt;/h1>
+        &lt;button onclick="showAlert()">Click me&lt;/button>
 
-  const category = [
-    {
-      title: "Mythic Glory",
-      img: GLORY,
-    },
-    {
-      title: "Mythic",
-      img: MYTHIC,
-    },
-    {
-      title: "Legend",
-      img: LEGEND,
-    },
-    {
-      title: "Epic",
-      img: EPIC,
-    },
-    {
-      title: "Grandmaster",
-      img: GRANDMASTER,
-    },
-  ];
+        &lt;script>
+          function showAlert() {
+            alert("Hello, world!");
+          }
+        &lt;/script>
+      &lt;/body>
+    &lt;/html>
+  </pre>`;
 
-  const skills = [
-    {
-      title: "HTML CSS",
-      percentage: "95%",
-      color: "#5fb2a8",
-    },
-    {
-      title: "Javascript",
-      percentage: "90%",
-      color: "#e1ae9e",
-    },
-    {
-      title: "TypeScript",
-      percentage: "85%",
-      color: "#dfae36",
-    },
-    {
-      title: "Responsive",
-      percentage: "95%",
-      color: "#bc8e5b",
-    },
-    {
-      title: "Restfull API",
-      percentage: "85%",
-      color: "#089cd1",
-    },
-    {
-      title: "Reusable Component",
-      percentage: "90%",
-      color: "#ca4544",
-    },
-    {
-      title: "Computational Thinking",
-      percentage: "85%",
-      color: "#7729c5",
-    },
-  ];
+  const defaultValue = "My Skills";
+  const [hover, setHover] = useState(defaultValue);
+  const [images, setImages] = useState("");
+
+  function toggleHover(e: string, img?: any) {
+    setImages(img?.getElementsByTagName("img")[0].src);
+    setHover(e);
+  }
 
   return (
     <Box mt={"70px"}>
@@ -104,9 +105,10 @@ const AboutPage: React.FC = () => {
       <Container maxW={"full"} bg={"#F5F5F5"} mt={1} shadow={"md"}>
         <Container
           maxW={"container.xl"}
-          display={["grid", "grid", "flex", "flex"]}
+          display={"flex"}
           gap={[0, 0, 0, 10]}
           justifyContent={"space-between"}
+          flexDir={["column", "column", "row", "row"]}
           color={"gray.600"}
           pt={10}
           pb={[10, 10, 10, 20]}
@@ -145,141 +147,445 @@ const AboutPage: React.FC = () => {
       {/* SKILLS */}
       <Container
         maxW={"full"}
-        bg={"#FAFAFA"}
-        pt={10}
-        pb={20}
+        py={10}
         mt={1}
         shadow={"md"}
+        className="container-parent-skills"
       >
         <Container maxW={"container.xl"}>
-          <Text
-            as={"h1"}
-            fontSize={30}
-            textAlign={["center", "center", "center", "center", "end"]}
-          >
-            My skills
-          </Text>
+          <Flex position={"relative"} className="pc-custom">
+            <Box rounded={"8px 8px 0 0"} bg={"black"} className="lcd" p={"5px"}>
+              <Box position={"relative"}>
+                {/* <Textarea id="htmlCode">{htmlString}</Textarea> */}
+                <Box
+                  id="htmlCode"
+                  dangerouslySetInnerHTML={{ __html: htmlCode }}
+                  overflowY={"scroll"}
+                />
 
-          <Box
-            position={"relative"}
-            display={["none", "none", "none", "none", "flex"]}
-            alignContent={"end"}
-            minH={"600px"}
-            overflow={"hidden"}
-            borderBottom={"1px"}
-          >
-            <UnorderedList display={"grid"} whiteSpace={"nowrap"} w={"full"}>
-              {category.map((item, idx) => {
-                return (
-                  <ListItem key={idx} w={"full"} fontSize={30}>
+                <Center
+                  color={"white"}
+                  position={"absolute"}
+                  top={"30%"}
+                  bottom={"30%"}
+                  left={"30%"}
+                  right={"30%"}
+                  gap={2}
+                  textAlign={"center"}
+                >
+                  {images ? (
                     <Image
-                      position={"absolute"}
-                      src={item.img.src}
-                      alt={item.title}
-                      w={"50px"}
-                      h={"50px"}
-                      className="chart-category skeleton-box"
-                      loading="lazy"
+                      objectFit={"contain"}
+                      src={images}
+                      alt="html"
+                      w={"30px"}
+                      h={"30px"}
                     />
-                    <Text
-                      ml={"50px"}
-                      color={"gray.600"}
-                      className="chart-category"
-                      fontSize={"25px"}
-                    >
-                      {item.title}
+                  ) : (
+                    <Text as={"h2"} fontSize={40} fontStyle={"italic"}>
+                      &lt; / &gt;
                     </Text>
-                  </ListItem>
-                );
-              })}
-            </UnorderedList>
+                  )}
+                  <Text as={"h2"} fontSize={30} fontStyle={"italic"}>
+                    {hover}
+                  </Text>
+                </Center>
+              </Box>
+            </Box>
+            <Box
+              rounded={"0 0 8px 8px"}
+              bg={"#E3E3E3"}
+              minH={"35px"}
+              className="shadow lcd"
+            />
+            <Box className="trapezoid" />
+            <Box
+              minH={"5px"}
+              w={"120px"}
+              bg={"#E3E3E3"}
+              rounded={"50px 50px 0 0"}
+            />
 
-            <Flex
-              borderLeft={"1px"}
-              borderColor={"gray.300"}
-              bg={"transparent"}
-              display={"flex"}
-              justifyContent={"center"}
-              bottom={0}
-              right={0}
-              position={"absolute"}
-              alignItems={"end"}
-              gap={["20px", "20px", "20px", "20px", "40px"]}
-              h={"full"}
-              w={["80%", "80%", "80%", "82%", "84%"]}
-              top={"23px"}
-            >
-              {skills.map((item, idx) => {
+            <Flex className="doted-mobile">
+              {mySkills.map((item, idx) => {
                 return (
-                  <Box
+                  <Center
                     key={idx}
-                    bg={item.color}
-                    maxW={["100px"]}
-                    minW={["100px"]}
-                    display={"flex"}
-                    flexDir={"column"}
-                    alignItems={"center"}
-                    justifyContent={"end"}
-                    h={item.percentage}
-                    roundedTop={"md"}
-                    color={"white"}
-                    textAlign={"center"}
+                    id={item.title}
+                    onMouseEnter={(e) =>
+                      toggleHover(e.currentTarget.id, e.currentTarget)
+                    }
+                    onMouseLeave={() => toggleHover(defaultValue)}
+                    boxSize={"50px"}
+                    className="hover-zoom"
+                    rounded={"full"}
                   >
-                    <Text fontSize={["50px"]} overflow={"hidden"} px={5}>
-                      {item.percentage}
-                    </Text>
-                    <Text
-                      fontSize={["20px"]}
-                      overflow={"hidden"}
-                      pb={10}
-                      px={5}
-                    >
-                      {item.title}
-                    </Text>
-                  </Box>
+                    <Image
+                      objectFit={"contain"}
+                      src={item.src}
+                      alt="html"
+                      w={"30px"}
+                      h={"30px"}
+                    />
+                  </Center>
                 );
               })}
             </Flex>
-          </Box>
 
-          <Box
-            display={["grid", "grid", "grid", "grid", "none"]}
-            gap={2}
-            borderLeft={"1px"}
-            borderBottom={"1px"}
-            borderColor={"#cbd5e0"}
-            mt={10}
-          >
-            {skills.map((item, idx) => {
-              return (
-                <Flex key={idx}>
-                  <Box
-                    bg={item.color}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"space-between"}
-                    h={"50px"}
-                    w={item.percentage}
-                    roundedRight={"md"}
-                    color={"white"}
-                    overflow={"hidden"}
-                  >
-                    <Text pl={5} fontSize={["20px"]}>
-                      {item.title}
-                    </Text>
-                    <Text
-                      whiteSpace={"nowrap"}
-                      fontSize={["20px"]}
-                      overflow={"hidden"}
-                      pr={5}
-                    >
-                      {item.percentage}
-                    </Text>
-                  </Box>
-                </Flex>
-              );
-            })}
-          </Box>
+            {/* Doted Left */}
+            <div
+              id="HTML"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} left={"380px"} bottom={"190px"}>
+                <Box
+                  position={"absolute"}
+                  right={0}
+                  top={"-50px"}
+                  className="dotted-line-vertical"
+                />
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  left={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/html.png"
+                    alt="html"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Javascript"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} left={"310px"} top={"400px"}>
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  left={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/js.png"
+                    alt="js"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Vuejs"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} left={"260px"} top={"325px"}>
+                <Box className="dotted-line-horizontal" w={"9rem"} />
+                <Center
+                  position={"absolute"}
+                  left={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/vue.png"
+                    alt="vue"
+                    w={"40px"}
+                    h={"40px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Reactjs"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} left={"310px"} top={"250px"}>
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  left={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/react.png"
+                    alt="react"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Tailwind CSS"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} left={"480px"} top={"190px"}>
+                <Box
+                  position={"absolute"}
+                  top={"-50px"}
+                  className="dotted-line-vertical"
+                />
+                <Box
+                  position={"absolute"}
+                  right={0}
+                  top={"-50px"}
+                  className="dotted-line-horizontal"
+                  w={"6rem"}
+                />
+                <Center
+                  position={"absolute"}
+                  right={"105px"}
+                  bottom={"30px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"contain"}
+                    src="./skills/tailwind.png"
+                    alt="tailwind"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            {/* Doted Right */}
+            <div
+              id="Restfull API"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"380px"} bottom={"190px"}>
+                <Box className="dotted-line-vertical" />
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  right={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/api.png"
+                    alt="api"
+                    w={"40px"}
+                    h={"40px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Typescript"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"310px"} top={"400px"}>
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  right={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/ts.png"
+                    alt="ts"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Nuxtjs"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"260px"} top={"325px"}>
+                <Box className="dotted-line-horizontal" w={"9rem"} />
+                <Center
+                  position={"absolute"}
+                  right={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"contain"}
+                    src="./skills/nuxtjs.png"
+                    alt="nuxtjs"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Nextjs"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"310px"} top={"250px"}>
+                <Box className="dotted-line-horizontal" w={"6rem"} />
+                <Center
+                  position={"absolute"}
+                  right={"-55px"}
+                  bottom={"-20px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/nextjs.png"
+                    alt="nextjs"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            <div
+              id="Chakra UI"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"480px"} top={"190px"}>
+                <Box
+                  position={"absolute"}
+                  top={"-50px"}
+                  className="dotted-line-vertical"
+                />
+                <Box
+                  position={"absolute"}
+                  left={0}
+                  top={"-50px"}
+                  className="dotted-line-horizontal"
+                  w={"6rem"}
+                />
+                <Center
+                  position={"absolute"}
+                  left={"105px"}
+                  bottom={"30px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/chakraui.png"
+                    alt="chakraui"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+            {/* Doted Top Center */}
+            <div
+              id="CSS"
+              className="doted"
+              onMouseEnter={(e) =>
+                toggleHover(e.currentTarget.id, e.currentTarget)
+              }
+              onMouseLeave={() => toggleHover(defaultValue)}
+            >
+              <Box position={"absolute"} right={"50%"} top={"190px"}>
+                <Box
+                  position={"absolute"}
+                  top={"-50px"}
+                  className="dotted-line-vertical"
+                />
+                <Center
+                  position={"absolute"}
+                  right={"-25px"}
+                  bottom={"55px"}
+                  rounded={"full"}
+                  boxSize={"50px"}
+                  className="hover-zoom"
+                >
+                  <Image
+                    objectFit={"cover"}
+                    src="./skills/css.png"
+                    alt="css"
+                    w={"40px"}
+                    h={"40px"}
+                    p={"5px"}
+                  />
+                </Center>
+              </Box>
+            </div>
+          </Flex>
         </Container>
       </Container>
     </Box>
