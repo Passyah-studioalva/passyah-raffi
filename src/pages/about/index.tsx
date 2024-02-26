@@ -168,8 +168,7 @@ const AboutPage: React.FC = () => {
                   position={"absolute"}
                   top={"30%"}
                   bottom={"30%"}
-                  left={"30%"}
-                  right={"30%"}
+                  w={'100%'}
                   gap={2}
                   textAlign={"center"}
                 >
