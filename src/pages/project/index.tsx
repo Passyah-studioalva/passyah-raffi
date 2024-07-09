@@ -8,13 +8,19 @@ const ProjectPage: React.FC = ({ projects }: any) => {
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const images = [
     {
-      url: "https://source.unsplash.com/6000x2000/?programming",
+      url: "./slideshow/1.jpg",
     },
     {
-      url: "https://source.unsplash.com/6000x2000/?programmer",
+      url: "./slideshow/2.jpg",
     },
     {
-      url: "https://source.unsplash.com/6000x2000/?coding",
+      url: "./slideshow/3.jpg",
+    },
+    {
+      url: "./slideshow/4.jpg",
+    },
+    {
+      url: "./slideshow/5.jpg",
     },
   ];
   const settings = {
