@@ -54,22 +54,22 @@ export default function Navbar() {
         py={2}
       >
         <Link href={"/"}>
-          <Center
+          <Image
+            src={"./3dPR.svg"}
+            alt={"logo-PR"}
             rounded={"full"}
-            minH={"70px"}
-            w={"70px"}
-            fontSize={40}
-            className="logo animate-hover"
-            bg={"white"}
-            color={"black"}
-          >
-            PR
-          </Center>
+            w="70px"
+            h="70px"
+            objectFit="cover"
+            objectPosition={"center"}
+            className="skeleton-box"
+            loading="lazy"
+          />
         </Link>
         <Flex
           justifyContent={"space-between"}
           // gap={40}
-          gap={'300px'}
+          gap={"300px"}
           fontSize={20}
           className="list-nav"
         >
@@ -123,17 +123,17 @@ export default function Navbar() {
         py={2}
       >
         <Link href={"/"}>
-          <Center
+          <Image
+            src={"./3dPR.svg"}
+            alt={"logo-PR"}
             rounded={"full"}
-            minH={"55px"}
-            w={"55px"}
-            fontSize={30}
-            className="logo animate-hover"
-            bg={"white"}
-            color={"black"}
-          >
-            PR
-          </Center>
+            w="55px"
+            h="55px"
+            objectFit="cover"
+            objectPosition={"center"}
+            className="skeleton-box"
+            loading="lazy"
+          />
         </Link>
         <IconButton
           variant="ghost"
