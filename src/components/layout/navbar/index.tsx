@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         <Link href={"/"}>
           <Image
-            src={"./3dPR.svg"}
+            src={"./favicon.ico"}
             alt={"logo-PR"}
             rounded={"full"}
             w="70px"
@@ -124,7 +124,7 @@ export default function Navbar() {
       >
         <Link href={"/"}>
           <Image
-            src={"./3dPR.svg"}
+            src={"./favicon.ico"}
             alt={"logo-PR"}
             rounded={"full"}
             w="55px"
